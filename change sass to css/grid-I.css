@@ -6,10 +6,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
-}
-
 h1 {
   font-size: 3rem;
 }
@@ -22,6 +18,10 @@ p {
   letter-spacing: 1px;
   line-height: 25px;
   opacity: 0.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: serif;
 }
 
 img {
@@ -56,18 +56,12 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid red;
-  position: absolute;
-  top: 60%;
-  left: 30%;
-  -webkit-transform: translate(-50%, -30%);
-          transform: translate(-50%, -30%);
-  max-width: 450px;
 }
 
 .grid-box {
   background-color: mediumblue;
   width: 100%;
+  height: 100%;
 }
 
 .container-wrapper {
@@ -128,13 +122,44 @@ img {
   margin: 0.5rem 0;
 }
 
+.grid-container button {
+  padding: 0.5rem;
+  margin: 0.2rem 0;
+}
+
 .btn-wrapper button {
   padding: 0.5rem 3.5rem;
 }
 
+.grid-container button a,
 .btn-wrapper button a {
   text-decoration: none;
   color: #000;
   font-weight: bold;
+}
+
+/* Responsiveness **/
+@media only screen and (max-width: 1650px) {
+  .hero-wrapper {
+    padding: 0 5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-wrapper {
+    padding: 0 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1650px) {
+  .grid-container article {
+    border: 1px solid red;
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    -webkit-transform: translate(-50%, -30%);
+            transform: translate(-50%, -30%);
+    max-width: 450px;
+  }
 }
 /*# sourceMappingURL=grid-I.css.map */
