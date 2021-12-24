@@ -197,10 +197,106 @@ console.log(fruits)
 
 
 // Splice method also add the data inside array but
+// this method add and remove the elements with 1st and 2nd parameter
 //  it takes two parameters which will add and delete 
 // for example var.splice(2, 0, "data", "datadeleted")
 // here 2 is the indexing where to insert new data data
 // and 0 means indexing where data gets deleted
 // 2 and 1 means 1 indexing data will be deleted
-fruits.splice(3, 0, "Mango", "Kiwi")
+fruits.splice(3, 0, "Mango", "grapes")
 console.log(fruits)
+
+// Javascript Array Concat
+
+const places = ['itahari', 'dharan', 'jhapa']
+const laptops = ['Dell', 'macbook', 'acer']
+const tech = ['js','python', 'wordpress']
+
+const addArray = places.concat(laptops, tech)
+console.log(addArray)
+
+const arr1 = ['first', 'array', 'number1']
+const arr2 = ['second', 'array', 'number2']
+const arr3 = ['third', 'arrays', 'number3']
+
+const concat = arr1.concat(arr2, arr3)
+console.log(concat)
+
+const concat2 = arr2.concat(arr1, arr3)
+console.log(concat2)
+
+const concat3 = arr3.concat(arr3, arr2)
+console.log(concat3)
+
+// Javascript ARRAY SLICE
+
+const mountains = ['fishtail','makalu', 'sagarmatha', 'amb dalam', 'kanchanjanga']
+console.log(mountains)
+
+// We can take the elements from array and create a new array with slice method
+// .slice(1, and 3) less than or equal to 3
+// it also takes two parameter where 1st arguments tells where to start and 2nd one tells where to end
+const newMountain = mountains.slice(1, 3)
+console.log("This will start to remove elements from 1 indexing and remove the data indexing number3 from array-->", newMountain)
+
+const newMountain2 = mountains.slice(1, 4)
+console.log(newMountain2)
+
+
+// Sort method sorts the elements alphabetically 
+console.log(newMountain2.sort())
+
+// reversing an array 
+console.log(newMountain2.reverse())
+
+const xyz = [100,12,506,6545]
+console.log(xyz)
+console.log(xyz.sort())
+
+const xyz2 = [56,487,89,0.5,-1]
+console.log(xyz2)
+console.log(xyz2.reverse())
+
+// if else conditional statements
+
+let myName = "dilli";
+if (myName = "dilli"){
+    console.log("My name is Dilli Hang Rai")
+}
+else{
+    console.log("THis is not my name")
+}
+
+// Loops in js
+console.log("Loops in js")
+
+// For Loop
+console.log("For loop")
+
+// value declare , put conditions and add value in a single line
+// condition satisfies looop ends 
+for(i=0; i<15; i++){
+    console.log(i)
+}
+
+// While Loop
+console.log("While Loop")
+// implement the value
+// put conditions 
+// add the value and loop ends here
+let y = 0;
+while(y < 6){
+    console.log(y)
+    y++;
+}
+
+// Do while loop
+console.log("Do while loop --> In this loop condition is checked last one")
+console.log()
+
+let z = 0;
+do{
+    console.log(z);
+    z++;
+}
+while (z < 4);
