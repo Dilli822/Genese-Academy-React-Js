@@ -1,4 +1,5 @@
 
+console.clear()
 // Var works in global window
 var thisIsVar = "This is var";
 
@@ -295,8 +296,38 @@ console.log("Do while loop --> In this loop condition is checked last one")
 console.log()
 
 let z = 0;
+// once statement is executed as condition is checked at last
 do{
     console.log(z);
     z++;
 }
+
+// condition is checked at last
 while (z < 4);
+
+
+// For each loop 
+//  it is used in big objects data
+//  Here p will take as key of fname
+// person's fname , person's lname, person's age
+// let persons = {fname: "dilli", lname:"Hang", age: 22}
+let persons = {fname: "dilli", lname:"Hang",
+              age: 22, address: "Itahari"}
+let p;
+for (p in persons) {
+    console.log(p)
+    console.log(persons[p])
+}
+
+// it's different from other loop as it will have current element's index number
+// with current's value and array object to which the current element belongs
+// In for each loop we can add 
+// we need callback function(or anonymous function)
+// this will take parameter which will print every single data from arrays
+let mobiles = ['sony', 'iphone', 'samsung'];
+mobiles.forEach((mobileList, index) => {
+    console.log(mobileList)
+    console.log('Index: ' + index +  ' Value: ' + mobileList)
+})
+
+
