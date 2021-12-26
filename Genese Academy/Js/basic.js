@@ -305,6 +305,18 @@ do{
 // condition is checked at last
 while (z < 4);
 
+// for example it checks the statement as condition is checked at last
+let o =2;
+// even though condition is not correct this code will execute once
+do{
+    console.log('do while loop is--->', o);
+    o++;
+}
+// here condition is not satisfied 
+while (o < 1)
+
+
+
 
 // For each loop 
 //  it is used in big objects data
@@ -329,5 +341,75 @@ mobiles.forEach((mobileList, index) => {
     console.log(mobileList)
     console.log('Index: ' + index +  ' Value: ' + mobileList)
 })
+// Callback function will call the function after the 
+// certain task is completed
 
+
+
+// The switch statement is used to perform different actions based on different conditions.
+// switch expression is evalutated once, compare the values with cases
+// excute the matchable conditions code black if not found
+// execute the default code block
+// break keyword will breaks out the switch block
+
+
+// syntax of Js Switch Statement
+/*   
+swithc(expression){
+    case x:
+        // code block
+        break;
+    case y:
+        // code block
+        break;
+    default;
+}
+
+getDay() will returns the weekday as a  number between 0 and 6
+it will return integer so we convert it to string down below the function
+*/
+
+// Switch in js executer the given tasks comparing with the cases
+// for example
+
+function getSwitchResult() {
+
+    // object Date() of js 
+    /* New keyword in JavaScript is used to create an 
+    instance of an object that has a constructor function.
+     */
+    let data = new Date();
+    switch (data.getDay().toString()) {
+        case '0': document.write("Sunday");
+        break;
+
+        case '1': document.write("Monday");
+        break;
+
+        case'2': document.write("Tuesday");
+        break;
+        
+        case'3': document.write("Wednesday");
+        break;
+
+        case'4': document.write("Thursday");
+        break;
+
+        case'5': document.write("friday");
+        break;
+
+        case'6': document.write("Saturday");
+        break;
+
+    }
+}
+
+console.log(getSwitchResult)
+
+
+// Events in Js
+// tons of events in js
+// onclick
+// onresize
+// 
 
