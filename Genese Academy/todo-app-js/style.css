@@ -32,3 +32,12 @@ body{
     border: 1px solid aquamarine;
 }
 
+
+.myNotes{
+    border: 1px solid #f350f3;
+    padding: 1rem 0.5rem;
+    margin-top: 3rem;
+}
+.myNotes h3{
+    padding: 0.5rem 0;
+}
