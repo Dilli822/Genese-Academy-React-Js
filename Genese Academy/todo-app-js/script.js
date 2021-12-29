@@ -136,10 +136,9 @@ function onAddNote() {
 
 function onGetSavedNotes(notes) {
     let my_notes_html='';
-    notes.forEach(function (val,index) {
+    notes.forEach(function (val) {
         my_notes_html = my_notes_html + '<div> ' + '<p> This is Note </p> ' + '<p> Date </p>' + '</div>';
-
-            
+        console.log(val)
     });
     document.getElementById('myNotes').innerHTML=my_notes_html;
 
