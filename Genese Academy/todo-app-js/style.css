@@ -53,10 +53,11 @@ body{
 }
 
 .delete{
-    color: red;
+    /* color: red; */
     cursor: pointer;
 }
 
 .delete:hover{
     text-decoration: underline;
 }
+

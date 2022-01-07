@@ -21,11 +21,22 @@
 
    <br>
 
-    <div id="newDiv" onmouseover="document.getElementById('newDiv').style.background='red';" 
-    style="height: 100px; width: 100px; background-color: green;">
-
+   <!-- onmouseover, onmouseout, -->
+    <div id="newDiv" onmouseover="document.getElementById('newDiv').style.background ='black';"
+    onmouseout = "document.getElementById('newDiv').style.backgroundColor= 'green';"
+    style="min-height: 200px; max-width: 500px; font-size: 3rem; 
+    font-family: sans-serif; display: flex; 
+    align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255)">
+        color
     </div>
+    <br>
+    <!-- onfucus -->
+    <input type="text" id="foc" onfocus="document.getElementById('foc').style.color = 'red'; style.padding = '1rem'">
 
+     <!-- Event Listener -->
+    <button id="btn">
+        Event Listener
+    </button>
     <!-- Basic Js -->
     <script src="./Js/basic.js"></script>
     <script src="./Js/basic-2.js"></script>
