@@ -224,7 +224,6 @@ function deleteNote(index) {
     delete my_notes[index];
     localStorage.setItem(MY_NOTE,JSON.stringify(my_notes));
     onGetSavedNotes(my_notes);
-
 }
 
 
