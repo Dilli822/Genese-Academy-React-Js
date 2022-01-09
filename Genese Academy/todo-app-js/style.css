@@ -29,11 +29,6 @@ body{
     cursor: pointer;
 }
 
-#noteBtn:hover{
-    background-color: #fff;
-    color: #000;
-    border: 1px solid aquamarine;
-}
 
 
 .myNotes{
@@ -61,3 +56,35 @@ body{
     text-decoration: underline;
 }
 
+
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    vertical-align: middle;
+    border: 1px solid red;
+    padding: 0.5rem;
+}
+
+.header-container > div > button{
+    padding: 0.5rem;
+    background-color: rgb(114, 233, 193);
+    border: 1px solid rgb(255, 255, 255);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.header-container > div > input{
+    padding: 0.3rem;
+}
+
+#noteBtn:hover,
+#searchBtn:hover{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid aquamarine;
+}
+
+textarea::placeholder{
+    padding: 0.5rem;
+}

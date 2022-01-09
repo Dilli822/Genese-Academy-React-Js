@@ -226,8 +226,11 @@ function deleteNote(index) {
     onGetSavedNotes(my_notes);
 }
 
+// Search features with filter method
+function onSearchItem() {
+    let search_key = document.getElementById('searchtext').value;
+    my_notes = my_notes.filter(note=>note.value==search_key);
+    console.log(my_notes)
+}
 
-
-
-
-
+console.log("Testing okay")
