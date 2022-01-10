@@ -7,19 +7,18 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title> Todo App-Js </title>
 
-     <!-- StyleSheet CSS -->
      <link rel="stylesheet" href="./style.css" type="text/css">
 
  </head>
  <body>
 
-    <div class="header-container">
     <h2> Todo App </h2>
-    <div>
-        <input type="text" id="searchtext"  onchange="onSearchItem()">
-        <button id="searchBtn" onchange="onSearchItem()"> Search </button>
+
+    <div class="header-container">
+        <input style="width:100%" type="text" id="searchText" placeholder="Search...."> <br> <br>
+        <button id="searchBtn" style="width:100%" onchange="onSearchItem()"> Search </button> <br>
+        <button id="searchBtn" style="width:100%" onclick="clearSearch();">Clear</button>
     </div>
-</div>
 
     <textarea name="" value="default value" id="note" cols="30" rows="10" placeholder="Write your notes"></textarea>
     
@@ -30,13 +29,43 @@
     
     <div class="myNotes">
         <h3>Added Notes:</h3>
-    <div id="myNotes">
+    <div id="myNotes"> 
         <!-- inseting the textarea typed data here -->
       
-    </div>
+     </div>
      </div>
      <!-- Js Script -->
      <script src="./script.js" type="text/javascript"></script>
 
- </body>
+</body>
  </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin:20px 0px;display: flex;justify-content: space-between">
+        <input id="searchText" style="width:100%" type="text" onchange=""/>
+        <button style="width:100%" onclick="onSearchItem();">Search</button>
+        <button style="width:100%" onclick="clearSearch();">Clear</button>
+    </div>
+    
+    
+            <textarea id="note"
+          placeholder="Write your notes!"></textarea>
+            <button id="noteBtn"
+            onclick="onAddNote()"
+            >ADD NOTES</button>
+    <div id="myNotes">
+    </div>
+
+</body>
+</html> -->
+
+
+
