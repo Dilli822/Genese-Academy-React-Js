@@ -5,12 +5,17 @@
     box-sizing: border-box;
 }
 
-#fruits > div:first-child {
+
+#fruits > div {
     border: 1px solid red;
+    min-height: 100px;
+    padding: 1rem;
 }
 
 #fruits {
-    height: 100px;
+    max-width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px 20px;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
 }
