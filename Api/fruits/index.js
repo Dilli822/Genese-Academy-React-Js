@@ -57,4 +57,21 @@ function onDisplayData(fruits) {
     })
     const singleFruits = document.getElementById('fruits').innerHTML = fruits_html;
     console.log(singleFruits)
+};
+
+// if api unable to load the data
+function onGetErrorDiv() {
+    return `
+    <div> Something went wrong. Please try again </div>
+    <button onclick="onGetFruits()">Retry </button>
+    `
 }
+
+// async function getAPIData() {
+//     await fetch(API_URL);
+// }
+// getAPIData().then(
+//     function(response){
+//         // block of code here
+//     }
+// )
