@@ -127,7 +127,7 @@ console.log(set)
 console.log(set.has(shyam))
 console.log(set.has(dilli))
 
-// iteration in js
+// iteration in set
 for(let usr of set){
     console.log(usr.name)
 }
@@ -138,3 +138,31 @@ set.add(ramesh)
 set.forEach(function(value){
     console.log(value)
 })
+
+// using set to get only unique names
+let values = ["gopal", "ram", "peter", "hari", "gautam", "ram", "sarita"]
+
+function getUniqueValue(arry){
+    return Array.from(new Set(arry));
+};
+// alert(getUniqueValue(values));
+
+
+// INSERTING THE HTML ELEMENT WITH JS
+console.clear();
+console.log("Clearing the past js")
+console.log("creating the tags of html with the help of js")
+window.onload = function () {
+    createElement()
+}
+function createElement(){
+let mainTag = document.getElementById('main');
+console.log(mainTag)
+let divTag = document.createElement('div');
+let pTag = document.createElement('p');
+pTag.innerText = 'This is a P tag!';
+console.log(pTag);
+divTag.appendChild(pTag);
+mainTag.appendChild(divTag);
+
+}
