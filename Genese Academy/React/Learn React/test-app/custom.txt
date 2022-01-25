@@ -1,0 +1,10 @@
+
+
+---> npm run build will build the production mode files
+---> test as in server mode with npm serve -s build in 500 port or any port number
+---> npx install the required packages 
+---> after npm run build the max size will be 100kb that depends upon our code
+---> package.json includes all the dependices and libraries used in our react app. It also acts as configuration file.
+
+
+
