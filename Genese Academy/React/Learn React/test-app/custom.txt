@@ -5,6 +5,7 @@
 ---> npx install the required packages 
 ---> after npm run build the max size will be 100kb that depends upon our code
 ---> package.json includes all the dependices and libraries used in our react app. It also acts as configuration file.
+----> export default will make sure default class app component is exported or imported
 
 
 

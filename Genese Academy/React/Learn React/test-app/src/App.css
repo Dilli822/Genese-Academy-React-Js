@@ -5,3 +5,9 @@
   box-sizing: border-box;
 }
 
+.firstDiv{
+  border: 2px solid red;
+  min-height: 500px;
+  background-color: rgb(224, 219, 219);
+}
+
