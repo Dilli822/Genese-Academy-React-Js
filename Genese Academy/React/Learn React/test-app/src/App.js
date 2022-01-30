@@ -3,8 +3,11 @@
 // This App js is main component in our react app
 
 import React, { Component } from "react";
+import reactDom from "react-dom";
 import './App.css';
 import MyFirstComponent from './component/MyFirstComponent';
+
+
 
 export default class App extends Component{
     render() {
@@ -23,3 +26,4 @@ export default class App extends Component{
         );
     }
 }
+
