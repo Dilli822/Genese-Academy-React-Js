@@ -21,14 +21,10 @@ import './App.css';
 // ReactDOM.render(a, document.getElementById('root'))
 
 // example on function based
-function Hello(props){
-    return <h2> Message is {props.text} message. </h2>
-}
 
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
-        <Hello text="This is Dilli's"/>
+    <App/>
     </React.StrictMode>,
     document.getElementById('root')
 );
