@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-// import MySecondComponent from './MySecondComponent'
+import MySecondComponent from './MySecondComponent'
 // import MyThirdComponent from './MyThirdComponent';
 
 
@@ -50,11 +50,11 @@ export default class MyFirstComponent extends Component{
 
     // this handleChange1 is actually another function which handle the address 
     // change name but this will be very bad practice and not proper way to do
-    handleChange1 = (event) => {
-        this.setState({
-            address: event.target.value
-        });
-    }
+    // handleChange1 = (event) => {
+    //     this.setState({
+    //         address: event.target.value
+    //     });
+    // }  
 
     render() {
         return (
@@ -77,6 +77,24 @@ export default class MyFirstComponent extends Component{
              <p> Address: {this.state.address} </p>
              <p> Your Phone Number: {this.state.phoneNumber} </p>
              <p> Your age is: {this.state.age} </p>
+
+             {/* props is used to send the data from one component to another component */}
+             {/* the main difference between props and state is that props are immutable theis why the container
+             should define the state that can be updated and changed, while the child components should only pass data from
+             the state using props. Once props is declared it cannot be changed 
+             if any component receives the data or value then it is sent with props form to pass
+             data from one component to another props is used */}
+             <div className="secondComponent">
+                 <MySecondComponent
+                  userName={this.state.username}
+                  // we can also send many other props
+                //   declaring the state props here 
+                  address = {this.state.address}
+                  age = {this.state.age}
+                  phoneNumber = {this.state.phoneNumber}
+                 
+                 />
+             </div>
 
             </div>
         )
