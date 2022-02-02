@@ -63,7 +63,7 @@ export default class MyFirstComponent extends Component{
                 <MySecondComponent/>
                 <MyThirdComponent/> */}
                 {/* // state is like container where we store data and everytime state changes components will rendered */}
-             
+             <h3> This is first component !</h3>
              {/* {this.state.username}
              {this.state.age} */}
              {/* let's make an input field with onChange event showing the name of type
