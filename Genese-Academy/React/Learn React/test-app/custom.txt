@@ -1,0 +1,23 @@
+
+
+---> npm run build will build the production mode files
+---> test as in server mode with npm serve -s build in 500 port or any port number
+---> npx install the required packages 
+---> after npm run build the max size will be 100kb that depends upon our code
+---> package.json includes all the dependices and libraries used in our react app. It also acts as configuration file.
+----> export default will make sure default class app component is exported or imported
+----> flux is statement management tool that comes with react 
+-----> but redux may be best for larger data and state management.
+
+
+--------  Components in React ------------
+-----> we can create components directory in react src folder ----
+
+-----> then we can create components js files as per our requirements ----
+----> we created a firstComponent then secondComponent 
+----> then we embeded the secondComponent into firstComponent
+----> and import the firstComponent into main App.js which is root app rendering the elements
+
+
+
+
