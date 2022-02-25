@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import MySecondComponent from './MySecondComponent'
+import { Link } from 'react-router-dom';
 // import MyThirdComponent from './MyThirdComponent';
 
 
@@ -84,7 +85,7 @@ export default class MyFirstComponent extends Component{
              the state using props. Once props is declared it cannot be changed 
              if any component receives the data or value then it is sent with props form to pass
              data from one component to another props is used */}
-             <div className="secondComponent">
+             {/* <div className="secondComponent">
                  <MySecondComponent
                   userName={this.state.username}
                   // we can also send many other props
@@ -94,7 +95,16 @@ export default class MyFirstComponent extends Component{
                   phoneNumber = {this.state.phoneNumber}
                  
                  />
-             </div>
+             </div> */}
+             <Link to = {{
+                //  '/MySecondComponent'
+                pathname: "/MySecondComponent",
+                search: "?sort=name",
+                hash: "#the-hash-example",
+                state: { fromDashboard: true }
+                }}> 
+                {/* // Now link will be http://localhost:3000/MySecondComponen?sort=name#the-hash-example */}
+                <button> Go to Second Component</button></Link>
 
             </div>
         )

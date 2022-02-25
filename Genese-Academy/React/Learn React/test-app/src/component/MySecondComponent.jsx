@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
-
+// import Link
+import { Link } from "react-router-dom"
 
 export default class MySecondComponent extends Component{
     render(){
@@ -19,6 +20,10 @@ export default class MySecondComponent extends Component{
             <p> Phone Number is : {this.props.phoneNumber} </p>
             <p> Age is {this.props.age} </p>
             </div> 
+
+
+            {/* Link with route name without reloading the page */}
+            <Link to={'/'}><button> GO TO FIRST COMPONENT WITHOUT RELOADING </button></Link>
             </div>
            
         )

@@ -12,19 +12,20 @@ import MySecondComponent from './component/MySecondComponent';
 
 
 
-class Routes extends Component {
+export default class Routes extends Component {
     render() {
         return (
         <div>
         <Router>
             <Switch>
                 <Route path="/" exact>
-                    <MySecondComponent />
+                    <MyFirstComponent />
                 </Route>
 
                 {/* Second Routing */}
-                <Router path="/secondComponent" exact>
-                    <MyFirstComponent/>
+                {/* exact instruct exact path with exact link name/url */}
+                <Router path="/MySecondComponent" exact>
+                    <MySecondComponent/>
                 </Router>
           </Switch>
         </Router>
@@ -32,5 +33,3 @@ class Routes extends Component {
         );
     }
 }
-
-export default Routes;
