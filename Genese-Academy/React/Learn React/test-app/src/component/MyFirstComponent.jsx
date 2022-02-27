@@ -105,6 +105,8 @@ export default class MyFirstComponent extends Component{
                 }}> 
                 {/* // Now link will be http://localhost:3000/MySecondComponen?sort=name#the-hash-example */}
                 <button> Go to Second Component</button></Link>
+                <Link to={{pathname: "/MyThirdComponent" }}> 
+                <button>Go To Third Component</button></Link>
 
             </div>
         )

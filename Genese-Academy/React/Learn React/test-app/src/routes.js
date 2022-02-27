@@ -9,6 +9,8 @@ import {
 
 import MyFirstComponent from './component/MyFirstComponent';
 import MySecondComponent from './component/MySecondComponent';
+import MyThirdComponent from './component/MyThirdComponent';
+import DigitalClock from './digitalClock';
 
 
 
@@ -26,6 +28,15 @@ export default class Routes extends Component {
                 {/* exact instruct exact path with exact link name/url */}
                 <Router path="/MySecondComponent" exact>
                     <MySecondComponent/>
+                </Router>
+
+                <Router path="/MyThirdComponent" exact>
+                    <MyThirdComponent/>
+                </Router>
+
+                {/* Digital Clock */}
+                <Router path="/digitalClock" exact>
+                    <DigitalClock />
                 </Router>
           </Switch>
         </Router>
