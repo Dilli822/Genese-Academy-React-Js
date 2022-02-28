@@ -56,7 +56,14 @@ export default class MyFirstComponent extends Component{
     //         address: event.target.value
     //     });
     // }  
+    
+    // Parent Function which will be callef 
+    callingParentFunction=()=>{
+        alert('Hello this is Parent Function being called by child passed as props');
+        console.log('hello testing');
+    }
 
+   
     render() {
         return (
             <div className='firstDiv'>
@@ -85,7 +92,8 @@ export default class MyFirstComponent extends Component{
              the state using props. Once props is declared it cannot be changed 
              if any component receives the data or value then it is sent with props form to pass
              data from one component to another props is used */}
-             {/* <div className="secondComponent">
+
+             <div className="secondComponent">
                  <MySecondComponent
                   userName={this.state.username}
                   // we can also send many other props
@@ -93,9 +101,12 @@ export default class MyFirstComponent extends Component{
                   address = {this.state.address}
                   age = {this.state.age}
                   phoneNumber = {this.state.phoneNumber}
-                 
+                //   function itself is passed as props to secondComponent
+                clickFunction =  {this.state.callingParentFunction}
                  />
-             </div> */}
+                 
+             </div>
+
              <Link to = {{
                 //  '/MySecondComponent'
                 pathname: "/MySecondComponent",
@@ -107,6 +118,10 @@ export default class MyFirstComponent extends Component{
                 <button> Go to Second Component</button></Link>
                 <Link to={{pathname: "/MyThirdComponent" }}> 
                 <button>Go To Third Component</button></Link>
+
+                <Link to = {{pathname: '/digitalClock'}}>
+                    <button> Try Digital Clock </button> 
+                </Link>
 
             </div>
         )
