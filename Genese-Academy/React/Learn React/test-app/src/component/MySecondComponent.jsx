@@ -21,16 +21,13 @@ export default class MySecondComponent extends Component{
             <p> Age is {this.props.age} </p>
 
             {/* button for calling the function which is passed as props here from myfirstComponent */}
-            
-            
+            {/* <button onClick={()=>this.props.clickFunction('dilli')}>ALERT</button> */}
+            <button onClick = { () => this.props.clickFunction('dummy username')}>alert</button>
             </div> 
-
             
-
-
             {/* Link with route name without reloading the page */}
             <Link to={'/'}><button> GO TO FIRST COMPONENT WITHOUT RELOADING </button></Link>
-            <button onClick="alert('fgfgf')">clickParentFunc</button>
+          
             </div>
             
            

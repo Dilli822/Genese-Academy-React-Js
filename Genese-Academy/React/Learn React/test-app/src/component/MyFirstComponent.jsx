@@ -12,6 +12,7 @@ export default class MyFirstComponent extends Component{
     constructor(props){
         super(props)
         // here this is scope of MyFirstComponent 
+        // we keep the state key value pair here
         this.state = {
             // name of state: "value"
             // these username address .. are also variabkes of state
@@ -38,6 +39,8 @@ export default class MyFirstComponent extends Component{
         // let's console it 
         console.log(event.target.name);
         console.log(event.target.value);
+
+        // we change the state here 
         this.setState({
             // setState return or render the value typed in input 
             // username: event.target.value,
@@ -57,9 +60,12 @@ export default class MyFirstComponent extends Component{
     //     });
     // }  
     
-    // Parent Function which will be callef 
-    callingParentFunction=()=>{
-        alert('Hello this is Parent Function being called by child passed as props');
+    // Parent Function which will be called
+    // we have also took name from secondCOmponent and used here as para argument in alert function
+    // so here param is name 
+    callingParentFunction = (name) => {
+        alert('Hello ' + name);
+        // alert('Hello this is Parent Function being called by child passed as props!THIS IS NOT STATE IT IS FUNCTION ITSELF WHICH IS PASSED AS PROPS------')
         console.log('hello testing');
     }
 
@@ -102,9 +108,9 @@ export default class MyFirstComponent extends Component{
                   age = {this.state.age}
                   phoneNumber = {this.state.phoneNumber}
                 //   function itself is passed as props to secondComponent
-                clickFunction =  {this.state.callingParentFunction}
+                clickFunction =  {this.callingParentFunction}
                  />
-                 
+
              </div>
 
              <Link to = {{
@@ -115,12 +121,16 @@ export default class MyFirstComponent extends Component{
                 state: { fromDashboard: true }
                 }}> 
                 {/* // Now link will be http://localhost:3000/MySecondComponen?sort=name#the-hash-example */}
-                <button> Go to Second Component</button></Link>
+                <button> Go to Second Component</button></Link> <br/><br/>
                 <Link to={{pathname: "/MyThirdComponent" }}> 
-                <button>Go To Third Component</button></Link>
+                <button>Go To Third Component</button></Link> <br/> <br/>
 
                 <Link to = {{pathname: '/digitalClock'}}>
                     <button> Try Digital Clock </button> 
+                </Link> &nbsp; &nbsp;
+
+                <Link to = {{ pathname: '/ap-iCall' }}>
+                    <button> ApiCall </button>
                 </Link>
 
             </div>

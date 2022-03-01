@@ -18,3 +18,15 @@ div{
   background: rgb(170, 243, 61);
   margin-top: 2rem;
 }
+
+
+button{
+  background-color: rgb(44, 243, 110);
+  padding: 0.5rem;
+  transition: all 0.35s;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #fff;
+}

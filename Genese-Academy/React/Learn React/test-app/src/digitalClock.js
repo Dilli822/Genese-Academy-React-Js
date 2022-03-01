@@ -38,6 +38,8 @@ export default class DigitalClock extends Component {
     };
 
 
+
+
     render() {
         return (
             <div>
@@ -47,7 +49,7 @@ export default class DigitalClock extends Component {
                     <div style={{padding: 20, border: '1px solid brown', width: '100%'}}>{this.state.date.getMinutes()}Min</div>
                     <div style={{padding: 20, border: '1px solid brown', width: '100%'}}>{this.state.date.getSeconds()}s</div>
                 </div>
-                <button onClick={this.clearTimer}>Clear/Stop the Timer</button>
+                <button onClick={this.clearTimer}>Clear/Stop the Timer</button> &nbsp;
             </div>
         )
     }

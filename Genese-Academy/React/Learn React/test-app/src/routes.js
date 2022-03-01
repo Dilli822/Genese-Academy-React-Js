@@ -11,8 +11,7 @@ import MyFirstComponent from './component/MyFirstComponent';
 import MySecondComponent from './component/MySecondComponent';
 import MyThirdComponent from './component/MyThirdComponent';
 import DigitalClock from './digitalClock';
-
-
+import ApiCall from './apiCall';
 
 export default class Routes extends Component {
     render() {
@@ -38,6 +37,13 @@ export default class Routes extends Component {
                 <Router path="/digitalClock" exact>
                     <DigitalClock />
                 </Router>
+
+                {/* ApiCall Route */}
+                <Router path="/apiCall" exact>
+                    <ApiCall />
+                </Router>
+
+
           </Switch>
         </Router>
         </div>
