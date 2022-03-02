@@ -129,9 +129,10 @@ export default class MyFirstComponent extends Component{
                     <button> Try Digital Clock </button> 
                 </Link> &nbsp; &nbsp;
 
-                <Link to = {{ pathname: '/ap-iCall' }}>
+                <Link to = {{ pathname: '/api-Call' }}>
                     <button> ApiCall </button>
                 </Link>
+
 
             </div>
         )

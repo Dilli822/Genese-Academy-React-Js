@@ -12,6 +12,7 @@ import MySecondComponent from './component/MySecondComponent';
 import MyThirdComponent from './component/MyThirdComponent';
 import DigitalClock from './digitalClock';
 import ApiCall from './apiCall';
+import CovidCard from './component/covidCard';
 
 export default class Routes extends Component {
     render() {
@@ -39,10 +40,9 @@ export default class Routes extends Component {
                 </Router>
 
                 {/* ApiCall Route */}
-                <Router path="/apiCall" exact>
+                <Router path="/api-Call" exact>
                     <ApiCall />
                 </Router>
-
 
           </Switch>
         </Router>
