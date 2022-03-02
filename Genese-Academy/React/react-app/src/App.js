@@ -4,8 +4,7 @@
 
 import React, { Component } from "react";
 import './App.css';
-import MyFirstComponent from './component/MyFirstComponent';
-
+import  Routes from './routes';
 
 
 export default class App extends Component{
@@ -24,7 +23,8 @@ export default class App extends Component{
             // </div>
 
             <div>
-                <MyFirstComponent/>
+                {/* <MyFirstComponent/> */}
+                <Routes/>
             </div>
         );
     }
