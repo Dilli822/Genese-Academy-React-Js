@@ -3,10 +3,10 @@ import React, {Component} from 'react';
 import MySecondComponent from './MySecondComponent'
 import { Link } from 'react-router-dom';
 // import MyThirdComponent from './MyThirdComponent';
+import {withRouter} from "react-router-dom";
 
 
-
-export default class MyFirstComponent extends Component{
+class MyFirstComponent extends Component{
     // we write the constructor here
 
     constructor(props){
@@ -133,8 +133,22 @@ export default class MyFirstComponent extends Component{
                     <button> ApiCall </button>
                 </Link>
 
+                {/* Change Route with Programmatically */}
+                <button onClick={
+                    ()=> this.props.history.push('/digitalClock',
+
+                    // we can even send the data with this method of programtical routing
+                    {name: this.state.username}
+                )
+                }
+               >
+                Change Route Programmatically</button>
+
+
 
             </div>
         )
     }
 }
+
+export default withRouter (MyFirstComponent);

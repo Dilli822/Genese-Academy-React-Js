@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import {withRouter} from "react-router-dom";
 
-
-export default class DigitalClock extends Component {
+class DigitalClock extends Component {
 
     constructor(props){
         super(props);
@@ -43,7 +43,13 @@ export default class DigitalClock extends Component {
     render() {
         return (
             <div>
-                <div> <h3> This is Digital ClocK! </h3> </div>
+                <div> <h3> This is Digital ClocK! </h3> 
+                <p style={{border: "1px solid red"}}> 
+                This is passed/exchange data from MyFirstComponent with the help of withRouter --
+                <span style={{color: "green", fontSize: "2rem", textDecoration: "underline"}}>
+                {this.props.location.state.name} </span>
+                </p>
+                </div>
                 <div style={{display: 'flex', color: 'red', fontWeight: 'bold', fontSize: 35, border: '1px solid brown', width: '100%'}}>
                     <div style={{padding: 20, border: '1px solid brown', width: '100%'}}>{this.state.date.getHours()}Hr</div>
                     <div style={{padding: 20, border: '1px solid brown', width: '100%'}}>{this.state.date.getMinutes()}Min</div>
@@ -54,3 +60,5 @@ export default class DigitalClock extends Component {
         )
     }
 }
+
+export default withRouter (DigitalClock);
