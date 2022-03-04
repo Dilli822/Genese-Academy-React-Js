@@ -124,10 +124,11 @@ class MyFirstComponent extends Component{
                 <button> Go to Second Component</button></Link> <br/><br/>
                 <Link to={{pathname: "/MyThirdComponent" }}> 
                 <button>Go To Third Component</button></Link> <br/> <br/>
-
-                <Link to = {{pathname: '/digitalClock'}}>
+{/* 
+                <Link to = {{pathname: '/digitalClock'} 
+                    // we can even send the data with this method of programtical routing
                     <button> Try Digital Clock </button> 
-                </Link> &nbsp; &nbsp;
+                </Link> &nbsp; &nbsp; */}
 
                 <Link to = {{ pathname: '/api-Call' }}>
                     <button> ApiCall </button>
@@ -143,6 +144,12 @@ class MyFirstComponent extends Component{
                 }
                >
                 Change Route Programmatically</button>
+
+                {/* <Link to = {{ pathname: '/dynamicRoute'}}> */}
+                <button onClick={
+                    ()=> this.props.history.push ('/dynamicRoute/book/45')
+                }>Dynamic Route</button>
+                {/* </Link> */}
 
 
 

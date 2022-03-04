@@ -27,24 +27,28 @@ export default class Routes extends Component {
 
                 {/* Second Routing */}
                 {/* exact instruct exact path with exact link name/url */}
-                <Router path="/MySecondComponent" exact>
+                <Route path="/MySecondComponent" exact>
                     <MySecondComponent/>
-                </Router>
+                </Route>
 
-                <Router path="/MyThirdComponent" exact>
+                <Route path="/MyThirdComponent" exact>
                     <MyThirdComponent/>
-                </Router>
+                </Route>
 
                 {/* Digital Clock */}
-                <Router path="/digitalClock" exact>
+                <Route path="/digitalClock" exact>
                     <DigitalClock />
-                </Router>
+                </Route>
 
                 {/* ApiCall Route */}
-                <Router path="/api-Call" exact>
+                <Route path="/api-Call" exact>
                     <ApiCall />
-                </Router>
+                </Route>
 
+                {/* dynamic Route  with any id --numbers, strings and its value */}
+                <Route path="/dynamicRoute/:id/:value" exact>
+                    <MySecondComponent />
+                </Route>
 
 
           </Switch>

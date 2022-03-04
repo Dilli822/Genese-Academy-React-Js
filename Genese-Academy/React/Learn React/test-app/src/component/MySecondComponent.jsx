@@ -1,14 +1,32 @@
 
 import React, {Component} from 'react';
 // import Link
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
-export default class MySecondComponent extends Component{
+ class MySecondComponent extends Component{
+
+    // constructor here
+    constructor(props){
+        super(props);
+        console.log(this.props);
+    }
+
+    // our exact isFalse 
     render(){
         return(
             // always store the component inside the div
             <div>
-            
+
+            <div > This is Dynamic Route Given Id: 
+                <span style={{color: "red" }}>
+                { this.props.match.params.id} </span> </div>
+                
+            <div> This is Dynamic Route Given Value: 
+            <span style={{color: "red" }}>
+                {this.props.match.params.value} </span></div>
+
+
             This is Second Component! We are receiving the component 1 data with the props 
             Once props is declared cannot be changed .But here our state is changed everytime
             it is typed inside the field input type. so our props is bringing the new data each time the state 
@@ -34,4 +52,6 @@ export default class MySecondComponent extends Component{
         )
     }
 }
+
+export default withRouter (MySecondComponent);
 

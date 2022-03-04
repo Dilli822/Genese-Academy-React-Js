@@ -14,6 +14,7 @@ class DigitalClock extends Component {
 
     // let's call the state dynamically
     componentDidMount(){
+        console.log(this.props)
         // here self = this is this for outer component but not setInterval's This
         let self = this;
         this.state.timer = setInterval(function(){
@@ -37,16 +38,13 @@ class DigitalClock extends Component {
         clearInterval(this.state.timer)
     };
 
-
-
-
     render() {
         return (
             <div>
                 <div> <h3> This is Digital ClocK! </h3> 
                 <p style={{border: "1px solid red"}}> 
                 This is passed/exchange data from MyFirstComponent with the help of withRouter --
-                <span style={{color: "green", fontSize: "2rem", textDecoration: "underline"}}>
+                <span style={{color: "green"}}>
                 {this.props.location.state.name} </span>
                 </p>
                 </div>
