@@ -1,16 +1,18 @@
 
 import React, {Component} from 'react';
 import MySecondComponent from './MySecondComponent'
+import { Link } from 'react-router-dom';
 // import MyThirdComponent from './MyThirdComponent';
+import {withRouter} from "react-router-dom";
 
 
-
-export default class MyFirstComponent extends Component{
+class MyFirstComponent extends Component{
     // we write the constructor here
 
     constructor(props){
         super(props)
         // here this is scope of MyFirstComponent 
+        // we keep the state key value pair here
         this.state = {
             // name of state: "value"
             // these username address .. are also variabkes of state
@@ -37,6 +39,8 @@ export default class MyFirstComponent extends Component{
         // let's console it 
         console.log(event.target.name);
         console.log(event.target.value);
+
+        // we change the state here 
         this.setState({
             // setState return or render the value typed in input 
             // username: event.target.value,
@@ -55,7 +59,17 @@ export default class MyFirstComponent extends Component{
     //         address: event.target.value
     //     });
     // }  
+    
+    // Parent Function which will be called
+    // we have also took name from secondCOmponent and used here as para argument in alert function
+    // so here param is name 
+    callingParentFunction = (name) => {
+        alert('Hello ' + name);
+        // alert('Hello this is Parent Function being called by child passed as props!THIS IS NOT STATE IT IS FUNCTION ITSELF WHICH IS PASSED AS PROPS------')
+        console.log('hello testing');
+    }
 
+   
     render() {
         return (
             <div className='firstDiv'>
@@ -84,6 +98,7 @@ export default class MyFirstComponent extends Component{
              the state using props. Once props is declared it cannot be changed 
              if any component receives the data or value then it is sent with props form to pass
              data from one component to another props is used */}
+
              <div className="secondComponent">
                  <MySecondComponent
                   userName={this.state.username}
@@ -92,11 +107,59 @@ export default class MyFirstComponent extends Component{
                   address = {this.state.address}
                   age = {this.state.age}
                   phoneNumber = {this.state.phoneNumber}
-                 
+                //   function itself is passed as props to secondComponent
+                clickFunction =  {this.callingParentFunction}
                  />
+
              </div>
+
+             <Link to = {{
+                //  '/MySecondComponent'
+                pathname: "/MySecondComponent",
+                search: "?sort=name",
+                hash: "#the-hash-example",
+                state: { fromDashboard: true }
+                }}> 
+                {/* // Now link will be http://localhost:3000/MySecondComponen?sort=name#the-hash-example */}
+                <button> Go to Second Component</button></Link> <br/><br/>
+                <Link to={{pathname: "/MyThirdComponent" }}> 
+                <button>Go To Third Component</button></Link> <br/> <br/>
+{/* 
+                <Link to = {{pathname: '/digitalClock'} 
+                    // we can even send the data with this method of programtical routing
+                    <button> Try Digital Clock </button> 
+                </Link> &nbsp; &nbsp; */}
+
+                <Link to = {{ pathname: '/api-Call' }}>
+                    <button> ApiCall </button>
+                </Link>
+
+                {/* Change Route with Programmatically */}
+                {/* to use the programmatically route with history.push
+                we must send the component withRouter () 
+                the main advantage of programmatical route is that we can make 'routing 
+                anywhere on our component unlike the pathname routing */}
+                <button onClick={
+                    ()=> this.props.history.push('/digitalClock',
+
+                    // we can even send the data with this method of programtical routing
+                    {name: this.state.username}
+                )
+                }
+               >
+                Change Route Programmatically</button>
+
+                {/* <Link to = {{ pathname: '/dynamicRoute'}}> */}
+                <button onClick={
+                    ()=> this.props.history.push ('/dynamicRoute/book/45')
+                }>Dynamic Route</button>
+                {/* </Link> */}
+
+
 
             </div>
         )
     }
 }
+
+export default withRouter (MyFirstComponent);

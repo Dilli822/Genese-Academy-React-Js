@@ -13,6 +13,7 @@ import MyThirdComponent from './component/MyThirdComponent';
 import DigitalClock from './digitalClock';
 import ApiCall from './apiCall';
 import CovidCard from './component/covidCard';
+import MaterialHome from './material-example/material-home';
 
 
 export default class Routes extends Component {
@@ -48,6 +49,11 @@ export default class Routes extends Component {
                 {/* dynamic Route  with any id --numbers, strings and its value */}
                 <Route path="/dynamicRoute/:id/:value" exact>
                     <MySecondComponent />
+                </Route>
+
+                {/* Route for Simple Material UI example */}
+                <Route path="/mui" exact>
+                    <MaterialHome />
                 </Route>
 
 

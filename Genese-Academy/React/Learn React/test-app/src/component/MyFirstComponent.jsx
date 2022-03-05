@@ -135,6 +135,10 @@ class MyFirstComponent extends Component{
                 </Link>
 
                 {/* Change Route with Programmatically */}
+                {/* to use the programmatically route with history.push
+                we must send the component withRouter () 
+                the main advantage of programmatical route is that we can make 'routing 
+                anywhere on our component unlike the pathname routing */}
                 <button onClick={
                     ()=> this.props.history.push('/digitalClock',
 

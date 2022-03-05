@@ -4,7 +4,7 @@
 
 import React, { Component } from "react";
 import './App.css';
-import  Routes from './routes';
+import Routes from './routes';
 
 
 export default class App extends Component{
