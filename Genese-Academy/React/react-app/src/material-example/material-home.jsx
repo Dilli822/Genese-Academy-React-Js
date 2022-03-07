@@ -1,15 +1,14 @@
 
-// // This is simple Material-i- Home Component
+// This is simple Material-i- Home Component
 
 import React, {Component} from "react";
-import MaterialHeader from "./material-header";
+import Header from './material-header';
 
 class MaterialHome extends Component {
     render(){
         return (
             <div>
-                <MaterialHeader />
-                Material Icon
+                <Header />
             </div>
         )
     }

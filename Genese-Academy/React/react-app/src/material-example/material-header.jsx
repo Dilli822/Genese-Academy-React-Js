@@ -1,38 +1,36 @@
 
 import React, {Component} from "react";
 
-
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-// these icons are imported from material-ui icons menu -- all the icons are in svg
-//  we can get it from https://material.io/icons
-import MenuOpen from '@mui/icons-material/MenuOpen';
+
+const useStyles = makeStyles ((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    title: {
+        flexGrow: 1,
+    },
+}));
 
 
-class MaterialHeader extends Component {
+class Header extends Component {
     render(){
         return (
             <div>
-                <AppBar position="static" color="secondary">
-
+                <AppBar position="static">
                     <Toolbar variant="dense">
-                        <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                            <MenuIcon />
-                            {/* try these menuopen icon  */}
-                            {/* <MenuOpen /> */}
+                         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+                             <MenuIcon />
                         </IconButton>
                     <Typography variant="h6" color="inherit" component="div">
-                        Header
+                        Photos
                         </Typography>
-
-                        <Button></Button>
-
                     </Toolbar>
                 </AppBar>
             </div>
@@ -40,4 +38,4 @@ class MaterialHeader extends Component {
     }
 }
 
-export default MaterialHeader;
+export default Header;
