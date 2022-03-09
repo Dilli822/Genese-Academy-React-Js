@@ -1,10 +1,9 @@
 
-
 // This App js is main component in our react app
 
 import React, { Component } from "react";
 import './App.css';
-import Routes from './routes';
+import  Routes from './routes';
 
 
 export default class App extends Component{
