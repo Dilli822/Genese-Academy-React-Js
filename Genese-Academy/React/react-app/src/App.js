@@ -4,7 +4,8 @@
 import React, { Component } from "react";
 import './App.css';
 import  Routes from './routes';
-
+import { ThemeProvider } from '@material-ui/core/styles';
+import {theme} from './theme';
 
 export default class App extends Component{
     render() {
@@ -23,7 +24,11 @@ export default class App extends Component{
 
             <div>
                 {/* <MyFirstComponent/> */}
-                <Routes/>
+               
+
+                <ThemeProvider theme={theme}>
+                     <Routes/>
+                </ThemeProvider>
             </div>
         );
     }
