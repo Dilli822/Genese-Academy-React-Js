@@ -24,13 +24,13 @@ export default class App extends Component{
 
             <div>
                 {/* <MyFirstComponent/> */}
-               
-
                 <ThemeProvider theme={theme}>
-                     <Routes/>
+                    <Routes/>
                 </ThemeProvider>
             </div>
         );
     }
 }
+
+
 
