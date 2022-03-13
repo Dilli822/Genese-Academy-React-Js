@@ -42,47 +42,36 @@ class Header extends Component {
                              <MenuIcon />
                         </IconButton>
                     <Typography variant="h6" color="inherit" component="div">
-                        Photos
+                        Menu Nav Bar
                         </Typography>
                     </Toolbar>
                 </AppBar>
 
                 <Drawer anchor="left" open={this.state.openDrawer} onClose={()=>this.setState({openDrawer: false})}>
                     Drawer will remain opened
-                    <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Nested List Items
-        </ListSubheader>
-      }
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <SendIcon />
-        </ListItemIcon>
-        <ListItemText primary="Sent mail" />
-      </ListItemButton>
-
-      <ListItemButton>
-        <ListItemIcon>
-          <DraftsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Drafts" />
-      </ListItemButton>
-
-      <ListItemButton>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="InboxIcon" />
-      </ListItemButton>
-
-
-    </List>
+                    <List 
+                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}component="nav"
+                    aria-labelledby="nested-list-subheader"
+                    subheader={
+                    <ListSubheader component="div" id="nested-list-subheader"> Nested List Items </ListSubheader>}>
+                      
+                      <ListItemButton>
+                        <ListItemIcon> <SendIcon /> </ListItemIcon>
+                      <ListItemText primary="Sent mail" /> 
+                      </ListItemButton>
+                    
+                    <ListItemButton>
+                      <ListItemIcon> <DraftsIcon /> </ListItemIcon>
+                    <ListItemText primary="Drafts" /> </ListItemButton>
+                    
+                    <ListItemButton> <ListItemIcon> <InboxIcon /> </ListItemIcon> 
+                    <ListItemText primary="InboxIcon" />
+                    </ListItemButton>
+              </List>
     </Drawer>
+
+
+    {/* Form  */}
 </div>
         )
     }
