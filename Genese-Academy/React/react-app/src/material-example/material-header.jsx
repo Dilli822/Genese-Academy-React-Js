@@ -1,6 +1,5 @@
 
 import React, {Component} from "react";
-
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -31,6 +30,7 @@ class Header extends Component {
         }
 }
 
+
     render(){
         return (
             <div>
@@ -50,15 +50,16 @@ class Header extends Component {
                 <Drawer anchor="left" open={this.state.openDrawer} onClose={()=>this.setState({openDrawer: false})}>
                     Drawer will remain opened
                     <List 
-                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}component="nav"
+                    sx={{ width: '100%', maxWidth: '250px', bgcolor: 'background.paper' }}component="nav"
                     aria-labelledby="nested-list-subheader"
                     subheader={
                     <ListSubheader component="div" id="nested-list-subheader"> Nested List Items </ListSubheader>}>
-                      
-                      <ListItemButton>
-                        <ListItemIcon> <SendIcon /> </ListItemIcon>
-                      <ListItemText primary="Sent mail" /> 
-                      </ListItemButton>
+
+                      <ListItemButton> 
+                          <ListItemIcon> <SendIcon />  </ListItemIcon>
+                          <ListItemText primary="SendMail" />
+                     </ListItemButton>
+
                     
                     <ListItemButton>
                       <ListItemIcon> <DraftsIcon /> </ListItemIcon>
@@ -67,6 +68,13 @@ class Header extends Component {
                     <ListItemButton> <ListItemIcon> <InboxIcon /> </ListItemIcon> 
                     <ListItemText primary="InboxIcon" />
                     </ListItemButton>
+
+                    <ListItemButton>
+                    <ListItemIcon> <StarBorder />  </ListItemIcon>
+                     <ListItemText primary="Starred " /> 
+                    </ListItemButton>
+
+
               </List>
     </Drawer>
 
@@ -78,3 +86,4 @@ class Header extends Component {
 }
 
 export default Header;
+

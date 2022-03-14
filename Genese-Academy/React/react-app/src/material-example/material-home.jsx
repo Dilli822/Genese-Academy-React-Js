@@ -4,6 +4,8 @@
 import React, {Component} from "react";
 import Header from './material-header';
 import FormExample from './form-material';
+import MaterialGrid from './material-grid';
+import MaterialButton from './material-button';
 
 class MaterialHome extends Component {
     render(){
@@ -11,6 +13,8 @@ class MaterialHome extends Component {
             <div>
                 <Header />
                 <FormExample />
+                <MaterialGrid />
+                <MaterialButton />
             </div>
         )
     }
