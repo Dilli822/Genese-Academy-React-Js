@@ -6,6 +6,7 @@ import Header from './material-header';
 import FormExample from './form-material';
 import MaterialGrid from './material-grid';
 import MaterialButton from './material-button';
+import MaterialDialogue from "./material-dialogue";
 
 class MaterialHome extends Component {
     render(){
@@ -15,6 +16,7 @@ class MaterialHome extends Component {
                 <FormExample />
                 <MaterialGrid />
                 <MaterialButton />
+                <MaterialDialogue />
             </div>
         )
     }

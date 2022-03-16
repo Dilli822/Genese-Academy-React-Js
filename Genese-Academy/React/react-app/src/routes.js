@@ -12,8 +12,8 @@ import MySecondComponent from './component/MySecondComponent';
 import MyThirdComponent from './component/MyThirdComponent';
 import DigitalClock from './digitalClock';
 import ApiCall from './apiCall';
-import CovidCard from './component/covidCard';
 import MaterialHome from './material-example/material-home';
+import MaterialTab from './material-example/material-tab';
 
 
 export default class Routes extends Component {
@@ -54,6 +54,12 @@ export default class Routes extends Component {
                 {/* Route for Simple Material UI example */}
                 <Route path="/mui" exact>
                     <MaterialHome />
+                </Route>
+
+
+                {/* TabUI Route */}
+                <Route path="/tabUI" exact>
+                    <MaterialTab />
                 </Route>
 
 
