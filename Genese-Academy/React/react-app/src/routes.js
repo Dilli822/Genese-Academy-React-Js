@@ -14,6 +14,7 @@ import DigitalClock from './digitalClock';
 import ApiCall from './apiCall';
 import MaterialHome from './material-example/material-home';
 import MaterialTab from './material-example/material-tab';
+import WeatherHome from './weatherInfo/weatherHome';
 
 
 export default class Routes extends Component {
@@ -60,6 +61,12 @@ export default class Routes extends Component {
                 {/* TabUI Route */}
                 <Route path="/tabUI" exact>
                     <MaterialTab />
+                </Route>
+
+
+                {/* Weather App */}
+                <Route path="/weatherApp" exact>
+                    <WeatherHome/>
                 </Route>
 
 
