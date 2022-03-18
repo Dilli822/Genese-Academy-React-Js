@@ -1,4 +1,5 @@
 
 export const CONFIG = {
-    WEATHER_API_KEY: "9f47e57c2815f2c97baf32e9af37a1c0"
+    WEATHER_API_KEY: "69133255942423bf2a858de1c17f7dee",
+    WEATHER_API: "http://api.openweathermap.org/data/2.5/weather?q=~&appid="
 };
