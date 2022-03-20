@@ -5,10 +5,10 @@ import {CONFIG} from './config';
 
 export class WeatherApi{
 
-    static getCurrentWeatherData(cityName){
-        let url = 
-            CONFIG.WEATHER_API.replace('~', cityName);
-        return axios.get(url+CONFIG.WEATHER_API_KEY);
+    // making the function api call async and await
+    static  getCurrentWeatherData = async (cityName)=> {
+        let url = CONFIG.WEATHER_API.replace('~', cityName);
+        return await axios.get(url+CONFIG.WEATHER_API_KEY);
     }
 }
 

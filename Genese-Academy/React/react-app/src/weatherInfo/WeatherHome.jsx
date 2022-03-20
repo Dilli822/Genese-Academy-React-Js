@@ -4,15 +4,31 @@ import {CONFIG} from './config';
 import { WeatherApi } from './weatherApi';
 
  class WeatherHome extends Component {
+
+    //  constructor class
+    constructor(props){
+        super(props);
+        this.state = {
+            city: "dharan",
+            weatherData: {},
+            isLoading: true
+        }
+    }
     // Mounting our component
-    // ComponentWillMount(){
-    //     this.getWeatherData();
-    // }
+    componentDidMount(){
+        this.getWeatherData();
+    }
 
     getWeatherData=()=> {
-        let weatherdemoApi = WeatherApi.getCurrentWeatherData('Kathmandu');
-        console.log(weatherdemoApi)
-        console.log("Hello World ")
+        let self = this;
+        WeatherApi.getCurrentWeatherData('dharan').then(
+            function(res){
+                self.setState({
+                weatherData:res.data,
+                isLoading:false
+                })
+            }
+        );
     }
 
    
