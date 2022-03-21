@@ -69,7 +69,6 @@ export default class Routes extends Component {
                     <WeatherHome/>
                 </Route>
 
-
           </Switch>
         </Router>
         </div>

@@ -1,44 +1,62 @@
-
 import React, {Component} from 'react';
-import {CONFIG} from './config';
-import { WeatherApi } from './weatherApi';
+import {WeatherApi} from './weatherApi'
+import Header from "./weather-Header";
+import {CircularProgress} from "@material-ui/core";
+import CurrentWeatherCard from "./currentWeatherCard";
+import Card from "@material-ui/core/Card/Card";
 
- class WeatherHome extends Component {
+class WeatherHome extends Component {
 
-    //  constructor class
     constructor(props){
         super(props);
-        this.state = {
-            city: "dharan",
-            weatherData: {},
-            isLoading: true
+        this.state={
+            city:"dharan",
+            weatherData:{},
+            isLoading:true
         }
     }
-    // Mounting our component
-    componentDidMount(){
+  componentDidMount() {
         this.getWeatherData();
-    }
+  }
 
-    getWeatherData=()=> {
-        let self = this;
-        WeatherApi.getCurrentWeatherData('dharan').then(
-            function(res){
-                self.setState({
+
+    getWeatherData=()=>{
+        let self=this;
+        WeatherApi.getCurrentWeatherData('dharan').then(function (res) {
+            console.log(res.data);
+            self.setState({
                 weatherData:res.data,
                 isLoading:false
-                })
-            }
-        );
-    }
+            })
 
-   
-
-    render(){
+        }).catch(function (error) {
+            console.log(error);
+        })
+    };
+    render() {
         return (
             <div>
-                <h5>Open Weather</h5>
+                <Header/>
+                {this.state.isLoading ? <CircularProgress/> :
+                <div>
+                    <Card>
+                        Climate:
+                     {this.state.weatherData.weather[0].description}
+                     </Card>
+                    
+                </div>
+                }
+
+                {this.state.isLoading ? <CircularProgress/> :
+                    <div>
+                        <CurrentWeatherCard data={this.state.weatherData}/>
+                    </div>
+                }
+                
+
+
             </div>
-        )
+        );
     }
 }
 
