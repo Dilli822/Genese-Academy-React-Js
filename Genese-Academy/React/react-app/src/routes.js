@@ -15,6 +15,9 @@ import ApiCall from './apiCall';
 import MaterialHome from './material-example/material-home';
 import MaterialTab from './material-example/material-tab';
 import WeatherHome from './weatherInfo/WeatherHome';
+import MyFirstHook from './react-hook/firstHook';
+import PrevState from './component/prevState';
+
 
 
 export default class Routes extends Component {
@@ -68,6 +71,24 @@ export default class Routes extends Component {
                 <Route path="/weatherApi" exact>
                     <WeatherHome/>
                 </Route>
+
+                {/* fIRST REACT HOOK ROUTING */}
+                <Route path="/firstHook" exact>
+                    <MyFirstHook />
+                </Route>
+
+                {/* PrevState Example */}
+                <Route path="/prevState" exact>
+                    <PrevState />
+                </Route>
+
+
+                {/* Example of reacthook based function component passing and getting props
+                <Route path = "/hookProps" exact>
+                    <secondHook />
+                </Route> */}
+
+
 
           </Switch>
         </Router>
