@@ -17,6 +17,7 @@ import MaterialTab from './material-example/material-tab';
 import WeatherHome from './weatherInfo/WeatherHome';
 import MyFirstHook from './react-hook/firstHook';
 import PrevState from './component/prevState';
+import MyThirdHook from './react-hook/thirdHook';
 
 
 
@@ -88,7 +89,20 @@ export default class Routes extends Component {
                     <secondHook />
                 </Route> */}
 
+                {/* react third hook routing */}
+                <Route path="/thirdHook" exact>
+                    <MyThirdHook />
+                </Route>
+                
+                {/* react third hook routing */}
+                <Route path="/inc/:id" exact>
+                    <MyThirdHook />
+                </Route>
 
+                {/* react third hook routing */}
+                <Route path="/thirdHook/t/edit/:id" exact>
+                    <MyThirdHook />
+                </Route>
 
           </Switch>
         </Router>

@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
 import MySecondHook from './secondHook';
+//let's use local image 
+import localBlackAndWhiteImage from '../images/on&offLightBulb.png';
+
+// use history for dynamic routing 
+import {useHistory} from "react-router-dom";
 
 function MyFirstHook(){
 
+    // Below are state hooks examples
     // here we made counter as state and setState is setCounter 
     // useState method will check the changes of state and render it on our component
     const [counter, setCounter] = useState(0);
@@ -28,6 +34,10 @@ function MyFirstHook(){
         }
         setIsLightOn(!isLightOn)
     }
+
+    // declaring the useHistory
+    let history = useHistory();
+
     return (
         <div> 
 
@@ -63,9 +73,24 @@ function MyFirstHook(){
                 imageUrl={imageUrl}
                 // passing another props called name
                 name = "This is props name!Hello World from firstHook! "
+                // passsing localImage as props to secondHook Component
+                localImage = {localBlackAndWhiteImage }
                 />
 
             </div>
+
+
+            {/* Changing the route in react hook with useHistory which is dynamic routin */}
+            {/* if you click on this button it will take you to the localhost/inc path  */}
+            <button onClick={()=>history.push('inc')}>
+                Change Route with history push
+            </button>
+            
+            <br />
+
+            <button onClick={()=> history.push('/thirdHook/t/edit')}>
+                Change THird Hook Route
+            </button>
         </div>
     )
 }
