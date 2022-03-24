@@ -18,6 +18,7 @@ import WeatherHome from './weatherInfo/WeatherHome';
 import MyFirstHook from './react-hook/firstHook';
 import PrevState from './component/prevState';
 import MyThirdHook from './react-hook/thirdHook';
+import UserProfile from './react-hook/userProfile';
 
 
 
@@ -102,6 +103,11 @@ export default class Routes extends Component {
                 {/* react third hook routing */}
                 <Route path="/thirdHook/t/edit/:id" exact>
                     <MyThirdHook />
+                </Route>
+
+                {/* React UserProfile */}
+                <Route path="/userProfile" exact>
+                    <UserProfile />
                 </Route>
 
           </Switch>
