@@ -19,6 +19,7 @@ import MyFirstHook from './react-hook/firstHook';
 import PrevState from './component/prevState';
 import MyThirdHook from './react-hook/thirdHook';
 import UserProfile from './react-hook/userProfile';
+import EffectHookExample from './react-hook/effectHook';
 
 
 
@@ -108,6 +109,11 @@ export default class Routes extends Component {
                 {/* React UserProfile */}
                 <Route path="/userProfile" exact>
                     <UserProfile />
+                </Route>
+
+                {/* effectHook Example */}
+                <Route path="/effectHook" exact>
+                    <EffectHookExample />
                 </Route>
 
           </Switch>
