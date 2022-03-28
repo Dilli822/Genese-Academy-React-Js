@@ -20,7 +20,7 @@ import PrevState from './component/prevState';
 import MyThirdHook from './react-hook/thirdHook';
 import UserProfile from './react-hook/userProfile';
 import EffectHookExample from './react-hook/effectHook';
-
+import TimerApp from './timerApp/timerApp';
 
 
 export default class Routes extends Component {
@@ -114,6 +114,12 @@ export default class Routes extends Component {
                 {/* effectHook Example */}
                 <Route path="/effectHook" exact>
                     <EffectHookExample />
+                </Route>
+
+
+                {/* Routes for TimerApp */}
+                <Route path="/timerApp" exact>
+                    <TimerApp />
                 </Route>
 
           </Switch>
