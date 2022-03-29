@@ -21,7 +21,7 @@ import MyThirdHook from './react-hook/thirdHook';
 import UserProfile from './react-hook/userProfile';
 import EffectHookExample from './react-hook/effectHook';
 import TimerApp from './timerApp/timerApp';
-
+import ApiCallExampleHook from './react-hook/api-call-eg-in-reactHook';
 
 export default class Routes extends Component {
     render() {
@@ -120,6 +120,12 @@ export default class Routes extends Component {
                 {/* Routes for TimerApp */}
                 <Route path="/timerApp" exact>
                     <TimerApp />
+                </Route>
+
+
+                {/* Hook Api Call Example */}
+                <Route path="/hook-api-call" exact>
+                    <ApiCallExampleHook />
                 </Route>
 
           </Switch>
