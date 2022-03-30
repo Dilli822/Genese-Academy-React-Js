@@ -9,7 +9,7 @@ export default function TimerApp() {
 
     const [time,setTime]=useState();
     const [timer,setTimer]=useState();
-    const  [isAlert,setIsAletr]=useState(false);
+    const [isAlert,setIsAletr]=useState(false);
     const [secondCount, setSecondCount] = useState(0);
     const [openDialog, setOpenDialog] = useState(false);
 

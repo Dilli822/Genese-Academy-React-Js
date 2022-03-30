@@ -22,6 +22,7 @@ import UserProfile from './react-hook/userProfile';
 import EffectHookExample from './react-hook/effectHook';
 import TimerApp from './timerApp/timerApp';
 import ApiCallExampleHook from './react-hook/api-call-eg-in-reactHook';
+import UnderstandEffectHook from './react-hook/understandEffectHook';
 
 export default class Routes extends Component {
     render() {
@@ -110,6 +111,13 @@ export default class Routes extends Component {
                 <Route path="/userProfile" exact>
                     <UserProfile />
                 </Route>
+
+
+                {/* UnderStand React Effect Hook */}
+                <Route path="/effect" exact>
+                    <UnderstandEffectHook />
+                </Route>
+
 
                 {/* effectHook Example */}
                 <Route path="/effectHook" exact>
