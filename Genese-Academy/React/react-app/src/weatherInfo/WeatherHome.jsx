@@ -4,6 +4,7 @@ import Header from "./weather-Header";
 import {CircularProgress} from "@material-ui/core";
 import CurrentWeatherCard from "./currentWeatherCard";
 import Card from "@material-ui/core/Card/Card";
+import CardHeader from '@mui/material/CardHeader';
 
 class WeatherHome extends Component {
 

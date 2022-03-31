@@ -9,7 +9,7 @@ export default function TimerApp() {
 
     const [time,setTime]=useState();
     const [timer,setTimer]=useState();
-    const [isAlert,setIsAletr]=useState(false);
+    const [isAlert,setIsAlert]=useState(false);
     const [secondCount, setSecondCount] = useState(0);
     const [openDialog, setOpenDialog] = useState(false);
 
@@ -23,7 +23,7 @@ export default function TimerApp() {
         let secondCount = 0;
         setTimer(setInterval(function () {
              if(secondCount==time*60){
-                 setIsAletr(!isAlert);
+                 setIsAlert(!isAlert);
                  setTime(0);
                 //  alert('Your time is up! Timer stopped at  ' + timer/60 + ' sec');
                  setSecondCount(0)
@@ -33,8 +33,8 @@ export default function TimerApp() {
                  setSecondCount(secondCount++);
              }
          },1000));
- 
      }
+     
      useEffect(()=>{
          clearInterval(timer);
      },[isAlert]);

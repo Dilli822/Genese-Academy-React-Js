@@ -23,6 +23,7 @@ import EffectHookExample from './react-hook/effectHook';
 import TimerApp from './timerApp/timerApp';
 import ApiCallExampleHook from './react-hook/api-call-eg-in-reactHook';
 import UnderstandEffectHook from './react-hook/understandEffectHook';
+import Pagination_number from './pagination/pagination_api';
 
 export default class Routes extends Component {
     render() {
@@ -135,6 +136,12 @@ export default class Routes extends Component {
                 <Route path="/hook-api-call" exact>
                     <ApiCallExampleHook />
                 </Route>
+
+                {/* Pagination Api */}
+                <Route path="/pagination-api" exact>
+                    <Pagination_number />
+                </Route>
+
 
           </Switch>
         </Router>
