@@ -1,12 +1,18 @@
 
+
+// know your API Nature and Structure Api
 import React, {useEffect, useState} from "react";
 // here lab is different module which we need to install
 import Pagination from '@mui/material/Pagination';
 import axios from 'axios';
 import Card from "@material-ui/core/Card/Card";
-import Grid from '@mui/material/Grid';
 import {CircularProgress} from "@material-ui/core";
 import CardHeader from '@mui/material/CardHeader';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default function Pagination_number(){
     // lets make the state hoook for page which is called pageState 
@@ -15,25 +21,37 @@ export default function Pagination_number(){
         isLoading: true,
         isError: false,
         pageData: [],
-        totalPage: 0
+        totalPage: 0,
+        indexPage: 10,
         })
 
     // function for handleChangePage which handles the which page number at where we are
     const handleChangePage = (event, newPage)=> {
-        console.log(newPage)
+        // let's set the pageNumber here too
+        // minus because our pagination_api component indexing starts with 0
+        pageState.pageNumber = newPage - 1;
+        setPageState({...pageState,pageState})
+        console.log(newPage);
     }
 
 
     // let's use the effectHook here to call our api 
-    // keeping dependices true here
+    // keeping dependices true here 
+    // we keept pageState.pageNumber for page numbering
     useEffect(()=>{
         getData();
-    }, [true])
+    }, [pageState.pageNumber])
+
+    const handleChange = (event) => {
+        pageState.indexPage = event.target.value;
+        setPageState({...pageState, pageState});
+        getData();
+      };
 
 
     // function to fetch the api with axios 
     const getData = ()=> {
-        axios.get('https://api.instantwebtools.net/v1/passenger?page=0&size=10')
+        axios.get('https://api.instantwebtools.net/v1/passenger?page='+ pageState.pageNumber+' &size='+pageState.indexPage)
         .then( function (response) {
             pageState.isLoading = false;
 
@@ -56,6 +74,30 @@ export default function Pagination_number(){
                 
                 <h2> React Page/API Page Numbering. </h2>
 
+
+                <div>
+                <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">PaAGE NUMBER</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={pageState.indexPage}
+                        label="Page Indexing"
+                        onChange={handleChange}
+                        >                                           
+                        
+                        <MenuItem value={10}>10</MenuItem>
+                        <MenuItem value={50}>50</MenuItem>
+                        <MenuItem value={100}>100</MenuItem>
+
+        </Select>
+      </FormControl>
+    </Box>
+
+
+                </div>
+
             <div>
                 {pageState.isLoading ? <CircularProgress/> :
 
@@ -73,7 +115,7 @@ export default function Pagination_number(){
                 }
                 
             <div style={{margin: '20px 0px'}}>
-                <Pagination count={10}
+                <Pagination count={pageState.totalPage}
                 onChange={handleChangePage} 
                 variant="outlined" />
             </div>

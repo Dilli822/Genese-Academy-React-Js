@@ -24,6 +24,7 @@ import TimerApp from './timerApp/timerApp';
 import ApiCallExampleHook from './react-hook/api-call-eg-in-reactHook';
 import UnderstandEffectHook from './react-hook/understandEffectHook';
 import Pagination_number from './pagination/pagination_api';
+import PaginationLoadMore from './pagination/pagination_loadMore-api';
 
 export default class Routes extends Component {
     render() {
@@ -140,6 +141,12 @@ export default class Routes extends Component {
                 {/* Pagination Api */}
                 <Route path="/pagination-api" exact>
                     <Pagination_number />
+                </Route>
+
+
+                {/* Pagination/api with loadmore button only */}
+                <Route path="/pagination-load-more" exact>
+                    <PaginationLoadMore />
                 </Route>
 
 
