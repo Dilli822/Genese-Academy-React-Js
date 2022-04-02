@@ -1,36 +1,48 @@
-
-// This App js is main component in our react app
-
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import './App.css';
-import  Routes from './routes';
-import { ThemeProvider } from '@material-ui/core/styles';
-import {theme} from './theme';
+import Routes from "./routes";
+import {theme} from "./theme";
+import {ThemeProvider} from '@material-ui/core/styles';
 
-export default class App extends Component{
+// v9 compat packages are API compatible with v8 code
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
+class App extends Component {
+
+    constructor(props){
+        super(props)
+    }
+
+    initFireBase=()=>{
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDq2FCeFEpjDg7q4cfMFI1fXjuxLJtXtdI",
+            authDomain: "user-details-9d8ad.firebaseapp.com",
+            projectId: "user-details-9d8ad",
+            storageBucket: "user-details-9d8ad.appspot.com",
+            messagingSenderId: "616054048327",
+            appId: "1:616054048327:web:ea4561b49667c6016e9362",
+            measurementId: "G-1G2P278JGJ"
+        };
+        const fireApp = firebase.initializeApp(firebaseConfig);
+    };
+
+    componentDidMount() {
+        this.initFireBase();
+    }
+
     render() {
         return (
-            // accepts inline css too in react
-            // we write the css in camelCase in react 
-            // <div style={{color: '#ffa07a'}}>
-            // <div className="firstDiv" style={{margin: 'auto'}}>
-            //     <p style={{fontSize:30, textAlign:'Center', margin:'1rem'}}> This is Class Based Component </p>
-            //     <p style={{color: '#000'}}> Check the console.</p>
-            //     {console.log("write js inside the component within curly braces!")}
-            // // </div>
-
-            // <MyFirstComponent/>
-            // </div>
-
             <div>
-                {/* <MyFirstComponent/> */}
-                <ThemeProvider theme={theme}>
-                    <Routes/>
-                </ThemeProvider>
+
+                    <ThemeProvider theme={theme}>
+                        <Routes/>
+                    </ThemeProvider>
             </div>
         );
     }
 }
 
-
-
+export default App;

@@ -25,6 +25,8 @@ import ApiCallExampleHook from './react-hook/api-call-eg-in-reactHook';
 import UnderstandEffectHook from './react-hook/understandEffectHook';
 import Pagination_number from './pagination/pagination_api';
 import PaginationLoadMore from './pagination/pagination_loadMore-api';
+import FireBaseForm from './react-hook/fireBase_Form';
+
 
 export default class Routes extends Component {
     render() {
@@ -148,6 +150,14 @@ export default class Routes extends Component {
                 <Route path="/pagination-load-more" exact>
                     <PaginationLoadMore />
                 </Route>
+
+
+                {/* Fire Base Form */}
+                <Route path="/fireBase" exact>
+                <FireBaseForm/>
+                </Route>
+
+
 
 
           </Switch>
