@@ -140,7 +140,7 @@ export default function FireBaseForm(){
             </Grid>
 
 
-            <Button onClick={handleSaveData}  variant="contained" color="secondary"> Submit </Button>
+            <Button onClick={handleSaveData}  variant="contained" color="secondary"> Submit </Button> &nbsp;&nbsp;
             <Button onClick={handleChange}  variant="contained" color="primary"> Check Data on Console! </Button>
             
         </div>

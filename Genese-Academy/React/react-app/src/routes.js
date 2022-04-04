@@ -26,6 +26,7 @@ import UnderstandEffectHook from './react-hook/understandEffectHook';
 import Pagination_number from './pagination/pagination_api';
 import PaginationLoadMore from './pagination/pagination_loadMore-api';
 import FireBaseForm from './react-hook/fireBase_Form';
+import UserProfileList from './react-hook/userList';
 
 
 export default class Routes extends Component {
@@ -155,6 +156,11 @@ export default class Routes extends Component {
                 {/* Fire Base Form */}
                 <Route path="/fireBase" exact>
                 <FireBaseForm/>
+                </Route>
+
+                {/* User List of firebase */}
+                <Route path="/user-list" exact>
+                    <UserProfileList />
                 </Route>
 
 
