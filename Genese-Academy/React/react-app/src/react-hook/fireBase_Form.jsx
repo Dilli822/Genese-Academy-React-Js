@@ -29,7 +29,8 @@ export default function FireBaseForm(){
         userProfile[event.target.id] = event.target.value;
         // here .. is spread operator and it copies the arrays
         setUserProfile({...userProfile, userProfile});
-        console.log(userProfile)
+        console.log(userProfile);
+        
     }
 
 
@@ -45,6 +46,8 @@ export default function FireBaseForm(){
             text: userProfile.text
         }).then(function(response){
             alert("Form Submitted Successfully!");
+            window.location.reload();
+            
         }).catch(function(error){
             alert("Error!Something Went Wrong!");
         })
