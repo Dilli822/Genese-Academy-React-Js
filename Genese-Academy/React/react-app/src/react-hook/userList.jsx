@@ -1,5 +1,4 @@
 
-
 // folow firebase offical docs 
 import React,  {useState, useEffect}  from "react";
 import Grid from '@mui/material/Grid';
@@ -68,11 +67,14 @@ export default function UserProfileList(){
     const onDeleteItem = () => {
       const firestore = firebase.firestore();
       firestore.collection("user-details").doc("/"+selectedDoc).delete().then(function(){
+        alert("You have performed Delete Action. ");
         console.log("Document Delete Successfully");
+        // window.location.reload();
       }).catch(function(error){
         console.error("Eror retierieving or deleting the document ", error);
       })
       setOpen(false);
+      
     }
 
     const handleClose =()=> {

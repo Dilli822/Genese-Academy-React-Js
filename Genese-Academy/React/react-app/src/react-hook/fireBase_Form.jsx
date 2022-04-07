@@ -6,14 +6,20 @@ import {Button} from "@material-ui/core";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { HistoryRounded } from "@mui/icons-material";
+import { useHistory } from "react-router-dom";
 
 // Read the articles from medium.com  ----> Highly recommended !!!
 // donot forget to installt he firebase package with npm
 
 export default function FireBaseForm(){
+    
+    // declaring the histroy variable here
+    let history = useHistory();
 
-    // here passsing name key to setState(setUserProfile)
-    const [userProfile,setUserProfile] = useState({name: "", address:"", email:"", phone: "", text: ""})
+    // Here passsing name key to setState(setUserProfile)
+    const [userProfile,setUserProfile] = useState({name: "", address:"", email:"", phone: "", text: ""});
+    const [isSaving, setIsSaving] = useState(false);
 
 
     // let's make a function 
@@ -30,14 +36,16 @@ export default function FireBaseForm(){
         // here .. is spread operator and it copies the arrays
         setUserProfile({...userProfile, userProfile});
         console.log(userProfile);
-        
     }
 
 
     // storing the user types dynamic value with firebase db name here
     const handleSaveData = () =>{
-        const firestore = firebase.firestore();
 
+        // setting the disabeld={isSaving true here}
+        setIsSaving(true);
+
+        const firestore = firebase.firestore();
         firestore.collection("user-details").add({
             name: userProfile.name,
             address: userProfile.address,
@@ -46,10 +54,15 @@ export default function FireBaseForm(){
             text: userProfile.text
         }).then(function(response){
             alert("Form Submitted Successfully!");
-            window.location.reload();
+            // window.location.reload();
+            setIsSaving(false);
+
+            // using the react router dom useHistory to route the user after saving the data to user-list
+            history.push('/user-list');
             
         }).catch(function(error){
             alert("Error!Something Went Wrong!");
+            setIsSaving(false);
         })
     }
 
@@ -68,7 +81,7 @@ export default function FireBaseForm(){
                     placeholder="Enter Valid  Name"
                     helperText="Please Enter Full Name"
                     error={false}
-                    disabled={false}
+                    disabled={isSaving}
                     onChange={handleChange}
                     fullWidth={true}
                 />
@@ -84,7 +97,8 @@ export default function FireBaseForm(){
                     placeholder="Enter Valid Phone Number"
                     helperText="Please Enter Phone Number"
                     error={false}
-                    disabled={false}
+                    // if isSaving is true disable all the textField as we had set up setIsSaving false above
+                    disabled={isSaving}
                     onChange={handleChange}
                     fullWidth={true}
                 />
@@ -100,7 +114,7 @@ export default function FireBaseForm(){
                     placeholder="Enter Valid Address"
                     helperText="Please Enter Address"
                     error={false}
-                    disabled={false}
+                    disabled={isSaving}
                     onChange={handleChange}
                     fullWidth={true}
                 />
@@ -116,7 +130,7 @@ export default function FireBaseForm(){
                     placeholder="Enter Valid Email"
                     helperText="Please Enter  Email"
                     error={false}
-                    disabled={false}
+                    disabled={isSaving}
                     onChange={handleChange}
                     fullWidth={true}
                 />
@@ -136,15 +150,20 @@ export default function FireBaseForm(){
                     fullWidth={true}
                     color = "secondary"
                     variant = "outlined"
+                    disabled = {isSaving}
                 />
                 </Grid>
 
 
             </Grid>
 
+            <div style={{marginTop: 20}}>
+            {isSaving ? <div> Loading.... </div>: ""}
+            <Button onClick={handleSaveData}  variant="contained" color="secondary" disabled={isSaving}> Submit </Button> &nbsp;&nbsp;
+            <Button onClick={handleChange}  variant="contained" color="primary"  disabled={isSaving}> Check Data on Console! </Button>
+         
+            </div>
 
-            <Button onClick={handleSaveData}  variant="contained" color="secondary"> Submit </Button> &nbsp;&nbsp;
-            <Button onClick={handleChange}  variant="contained" color="primary"> Check Data on Console! </Button>
             
         </div>
     )
