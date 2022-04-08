@@ -4,7 +4,7 @@ import MySecondComponent from './MySecondComponent'
 import { Link } from 'react-router-dom';
 // import MyThirdComponent from './MyThirdComponent';
 import {withRouter} from "react-router-dom";
-
+import UserProfileList from '../react-hook/userList';
 
 class MyFirstComponent extends Component{
     // we write the constructor here
@@ -154,6 +154,9 @@ class MyFirstComponent extends Component{
                     ()=> this.props.history.push ('/dynamicRoute/book/45')
                 }>Dynamic Route</button>
                 {/* </Link> */}
+                <br/> <br/><br/> <br/>
+                <Link to={{ pathname: "/user-list" }}> 
+                <button>Go To User List</button></Link> <br/> <br/>
 
 
 

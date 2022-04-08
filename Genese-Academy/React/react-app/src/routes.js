@@ -27,7 +27,7 @@ import Pagination_number from './pagination/pagination_api';
 import PaginationLoadMore from './pagination/pagination_loadMore-api';
 import FireBaseForm from './react-hook/fireBase_Form';
 import UserProfileList from './react-hook/userList';
-
+import AnimeAPI from './anime-api/anime-api';
 
 export default class Routes extends Component {
     render() {
@@ -154,13 +154,20 @@ export default class Routes extends Component {
 
 
                 {/* Fire Base Form */}
-                <Route path="/fireBase" exact>
+                {/* keeping dynamic :id for user details update purpose */}
+                <Route path="/fireBase/:id" exact>
                 <FireBaseForm/>
                 </Route>
 
                 {/* User List of firebase */}
                 <Route path="/user-list" exact>
                     <UserProfileList />
+                </Route>
+
+
+                {/* Anime Api */}
+                <Route path="/anime-api" exact>
+                    <AnimeAPI/>
                 </Route>
 
 

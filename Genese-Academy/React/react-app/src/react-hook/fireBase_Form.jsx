@@ -1,13 +1,12 @@
 
-import React,  {useState}  from "react";
+import React,  {useState, useEffect}  from "react";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import {Button} from "@material-ui/core";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { HistoryRounded } from "@mui/icons-material";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 // Read the articles from medium.com  ----> Highly recommended !!!
 // donot forget to installt he firebase package with npm
@@ -17,9 +16,56 @@ export default function FireBaseForm(){
     // declaring the histroy variable here
     let history = useHistory();
 
+    // params declaration
+    let params = useParams();
+
     // Here passsing name key to setState(setUserProfile)
     const [userProfile,setUserProfile] = useState({name: "", address:"", email:"", phone: "", text: ""});
     const [isSaving, setIsSaving] = useState(false);
+
+    // calling effect if it isnot with param add 
+    useEffect (()=> {
+        if(params.id != 'add'){
+            getDatabyId();
+        }
+    }, [true])
+
+
+    
+    // let's create a constant function that gives us id from firecollection of firestore firebase
+    //  this is taken from docs url is: https://firebase.google.com/docs/firestore/query-data/get-data
+    
+    const getDatabyId = () => {
+        const firestore = firebase.firestore();
+  
+        var docRef = firestore.collection("user-details").doc("/" + params.id);
+  
+        docRef.get().then(function(doc){
+          if(doc.exists){
+            //   then here comes the params.id if exists with path /add then here comes 
+            // then docs will extract data from userProfile's name, address, email, text, phone
+            // and finally form will be populated with specific with its's id param.id 
+            // for eg: dillihangrae@gmail.com with id 0nHcFnt0uuFv074qXyI0 if comes then that person data will be extracted and populated
+            // but if the url with 'add' comes then our form will be empty as our code will know why users are arriving at this route
+            userProfile.name = doc.data().name;
+            userProfile.address = doc.data().address;
+            userProfile.email = doc.data().email;
+            userProfile.phone = doc.data().phone;
+            userProfile.text = doc.data().text;
+            setUserProfile({...userProfile,userProfile});
+
+            console.log("Document Data: ", doc.data());
+
+          } else{
+            //   if it is edit then our code works here
+            console.log("No such Document is found !");
+          }
+        }).catch(function(error){
+          console.log("Error getting document", error);
+        })
+      }
+  
+  
 
 
     // let's make a function 
@@ -44,8 +90,10 @@ export default function FireBaseForm(){
 
         // setting the disabeld={isSaving true here}
         setIsSaving(true);
-
         const firestore = firebase.firestore();
+
+    // applying condition here if path is '/add' then only update the user form
+    if(params.id === 'add'){
         firestore.collection("user-details").add({
             name: userProfile.name,
             address: userProfile.address,
@@ -57,14 +105,38 @@ export default function FireBaseForm(){
             // window.location.reload();
             setIsSaving(false);
 
+            console.log(response);
+
             // using the react router dom useHistory to route the user after saving the data to user-list
             history.push('/user-list');
             
         }).catch(function(error){
             alert("Error!Something Went Wrong!");
             setIsSaving(false);
+            console.log(error);
         })
+    }else{
+        firestore.collection("user-details").doc(params.id).update({
+            name: userProfile.name,
+            address: userProfile.address,
+            email: userProfile.email,
+            phone: userProfile.phone,
+            text: userProfile.text
+        }).then(function(response){
+            alert("Form Submitted Successfully!");
+            // window.location.reload();
+            setIsSaving(false);
+            console.log(response);
+            // using the react router dom useHistory to route the user after saving the data to user-list
+            history.push('/user-list');        
+        }).catch(function(error){
+            alert("Error!Something Went Wrong!");
+            setIsSaving(false);
+            console.log(error);
+       })
     }
+}
+
 
     return (
         <div>

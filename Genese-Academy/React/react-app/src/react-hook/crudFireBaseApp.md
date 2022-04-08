@@ -14,3 +14,9 @@
 
 ************* sources ********************
 ---- Follow the firebase docs and medium.com articles 
+
+
+
+***** Deployment for CRUD App with FireBase + React **********
+---- read the articles with link https://medium.com/swih/how-do.deploy-a-react-app-with-firebase-hosting-98063c5bf425
+---- npm install firebase-tools -g --save

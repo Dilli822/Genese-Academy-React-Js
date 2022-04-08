@@ -1,6 +1,6 @@
 
 import { createTheme } from '@mui/material/styles';
-import { green, purple, yellow, red } from '@mui/material/colors';
+import {  amber, blue, blueGrey, brown, common, cyan, deepOrange, deepPurple, green, grey, indigo, lightBlue, lightGreen, lime, orange, pink, purple, red, teal, yellow } from '@mui/material/colors';
 
 
 // material ui is very helpful in theming the default to different colors palettes
@@ -10,7 +10,7 @@ export const theme = createTheme({
       main: red[500],
     },
     secondary: {
-      main: green[500],
+      main: blue[500],
     },
   },
 });
