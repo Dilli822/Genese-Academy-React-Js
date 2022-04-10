@@ -16,6 +16,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/styles';
+import loginWithSocialAccount from './firebaseManager';
+
+
 
 function Copyright(props) {
   return (
@@ -52,6 +55,11 @@ export default function SignInSide() {
       password: data.get('password'),
     });
   };
+
+  const loginWithGoogle =() => {
+    // alert('-----');
+    loginWithSocialAccount('google');
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -143,6 +151,7 @@ export default function SignInSide() {
                 variant="contained"
                 style = {{backgroundColor:  "#FF4C4C", color: "#fff"}}
                 sx={{ mt: 3, mb: 2 }}
+                onClick = {loginWithGoogle}
                 >
                 Login in/Sign in with Social Media
                 </Button>

@@ -12,7 +12,10 @@ import 'firebase/compat/firestore';
 class App extends Component {
 
     constructor(props){
-        super(props)
+        super(props);
+        this.state = {
+            initializing: true
+        }
     }
 
     initFireBase=()=>{
@@ -27,6 +30,10 @@ class App extends Component {
             measurementId: "G-1G2P278JGJ"
         };
         const fireApp = firebase.initializeApp(firebaseConfig);
+        this.setState({
+            initializing: false
+        })
+
     };
 
     componentDidMount() {
@@ -36,10 +43,11 @@ class App extends Component {
     render() {
         return (
             <div>
-
+                {this.state.initializing ? 'Please Wait' : 
                     <ThemeProvider theme={theme}>
                         <Routes/>
                     </ThemeProvider>
+                }
             </div>
         );
     }
