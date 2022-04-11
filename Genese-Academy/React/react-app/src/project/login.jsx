@@ -1,7 +1,7 @@
 // Source Code Design: https://mui.com/getting-started/templates/
 // Material UI Design 
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -44,8 +44,12 @@ const useStyles = makeStyles((theme) => ({
 const theme = createTheme();
 
 export default function SignInSide() {
-    // using our useStyles here
-    const classes = useStyles();
+
+  // using our useStyles here
+  const classes = useStyles();
+
+  // making states for login to let users know it is being login or logged in already
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -58,7 +62,16 @@ export default function SignInSide() {
 
   const loginWithGoogle =() => {
     // alert('-----');
-    loginWithSocialAccount('google');
+    setIsLogin(true)
+    loginWithSocialAccount('google').then(function(response){
+      console.log("This is user's credentials of user ----> ", response);
+      console.log(response);
+      setIsLogin(false);
+    }).catch(function(error){
+      alert(error);
+      console.log("This is error-->", error);
+      setIsLogin(false);
+    })
   }
 
   return (
@@ -131,7 +144,7 @@ export default function SignInSide() {
 
               <Grid container>
 
-                <Grid item xs>
+                <Grid item xs="12">
                   <Link href="#" variant="body2">
                     Forgot password?
                   </Link>
@@ -145,6 +158,12 @@ export default function SignInSide() {
 
                 <br/>
 
+                <div
+                style = {{color:  "#181716", fontWeight: "bold", width: "100%", textAlign: 'center', borderRadius: "4px", padding: "1rem"}}
+                sx={{ mt: 3, mb: 2 }}>
+                SOCIAL ACCOUNT
+                </div>
+
                 <Button
                 type="submit"
                 fullWidth
@@ -152,12 +171,18 @@ export default function SignInSide() {
                 style = {{backgroundColor:  "#FF4C4C", color: "#fff"}}
                 sx={{ mt: 3, mb: 2 }}
                 onClick = {loginWithGoogle}
+                // making it disabled not to allow clicking on button while logging
+                disabled={isLogin}
                 >
-                Login in/Sign in with Social Media
+                { isLogin ? 'Please Wait...': 
+                'Login in/Sign in with Google Account' }
                 </Button>
 
+                <br />
 
+                
               </Grid>
+
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
