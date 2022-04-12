@@ -17,7 +17,8 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/styles';
 import loginWithSocialAccount from './firebaseManager';
-
+import signup from './signup';
+import signin from './signin';
 
 
 function Copyright(props) {
@@ -51,6 +52,21 @@ export default function SignInSide() {
   // making states for login to let users know it is being login or logged in already
   const [isLogin, setIsLogin] = useState(false);
 
+  // setting email and password here
+  const [email, setEmail] = useState('');
+  const [password, setPassword]= useState('');
+
+  // Handling the changes here with handleChange function for input handling
+  const handleChange = (event) => {
+    // setting the email and password here altogether
+    if(event.target.id == 'email'){
+      setEmail(event.target.value);
+    }
+      else{
+        setPassword(event.target.value);
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -72,6 +88,27 @@ export default function SignInSide() {
       console.log("This is error-->", error);
       setIsLogin(false);
     })
+  }
+
+  // registering the first time user here
+  const onRegisterUser =()=> {
+    // sending the params email and password
+    if(email !== '' && password !== ''){
+    signup(email, password).then(function(response){
+      console.log("This is SIGN UP  reponse if you are seeing this check your firebase console users new users will be added auotmatically ---> ");
+      console.log(response);
+    })
+    }
+  }
+
+  const onSignIn =()=>{
+    // sending the params email and password
+    if(email !== '' && password !== ''){
+      signin(email, password).then(function(response){
+          console.log("This is SIGN IN reponse ---> ");
+          console.log(response);
+      })
+    }
   }
 
   return (
@@ -108,7 +145,8 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+
+            <div noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -118,6 +156,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={handleChange}
               />
               <TextField
                 margin="normal"
@@ -128,6 +167,7 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -138,20 +178,21 @@ export default function SignInSide() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={onSignIn}
               >
                 Sign In
               </Button>
 
               <Grid container>
 
-                <Grid item xs="12">
+                <Grid item xs="12" md="6">
                   <Link href="#" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
 
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="#" variant="body2" onClick={onRegisterUser}>
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
@@ -184,7 +225,8 @@ export default function SignInSide() {
               </Grid>
 
               <Copyright sx={{ mt: 5 }} />
-            </Box>
+            </div>
+  
           </Box>
         </Grid>
       </Grid>
