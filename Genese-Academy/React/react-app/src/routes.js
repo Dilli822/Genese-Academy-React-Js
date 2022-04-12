@@ -29,6 +29,7 @@ import FireBaseForm from './react-hook/fireBase_Form';
 import UserProfileList from './react-hook/userList';
 import AnimeAPI from './anime-api/anime-api';
 import Login from './project/login';
+import Chat from './project/chat';
 
 export default class Routes extends Component {
     render() {
@@ -176,6 +177,12 @@ export default class Routes extends Component {
                 <Route path="/login" exact>
                     <Login/>
                 </Route>
+
+                {/* Route for Chat App */}
+                <Route path="/chat" exact>
+                    <Chat />
+                </Route>
+
 
 
 

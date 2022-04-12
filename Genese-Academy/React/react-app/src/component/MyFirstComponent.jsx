@@ -124,7 +124,8 @@ class MyFirstComponent extends Component{
                 <button> Go to Second Component</button></Link> <br/><br/>
                 <Link to={{pathname: "/MyThirdComponent" }}> 
                 <button>Go To Third Component</button></Link> <br/> <br/>
-{/* 
+                
+               {/* 
                 <Link to = {{pathname: '/digitalClock'} 
                     // we can even send the data with this method of programtical routing
                     <button> Try Digital Clock </button> 
@@ -157,6 +158,10 @@ class MyFirstComponent extends Component{
                 <br/> <br/><br/> <br/>
                 <Link to={{ pathname: "/user-list" }}> 
                 <button>Go To User List</button></Link> <br/> <br/>
+
+                <button  onClick = {
+                    ()=> this.props.history.push('/login')
+                }>Login</button>
 
 
 

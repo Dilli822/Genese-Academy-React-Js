@@ -19,6 +19,10 @@ import { makeStyles } from '@material-ui/styles';
 import loginWithSocialAccount from './firebaseManager';
 import signup from './signup';
 import signin from './signin';
+import {useHistory} from 'react-router-dom';
+import getCurrentUser from "./appFunctions";
+
+
 
 
 function Copyright(props) {
@@ -45,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
 const theme = createTheme();
 
 export default function SignInSide() {
+
+  let history = useHistory();
 
   // using our useStyles here
   const classes = useStyles();
@@ -82,7 +88,9 @@ export default function SignInSide() {
     loginWithSocialAccount('google').then(function(response){
       console.log("This is user's credentials of user ----> ", response);
       console.log(response);
+      alert("You have successfully signed in!")
       setIsLogin(false);
+      history.push('/chat');
     }).catch(function(error){
       alert(error);
       console.log("This is error-->", error);
@@ -107,6 +115,10 @@ export default function SignInSide() {
       signin(email, password).then(function(response){
           console.log("This is SIGN IN reponse ---> ");
           console.log(response);
+          alert("You have successfully signed in!")
+          setIsLogin(false);
+          history.push('/chat');
+
       })
     }
   }
@@ -179,6 +191,7 @@ export default function SignInSide() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={onSignIn}
+                disabled={isLogin}
               >
                 Sign In
               </Button>
