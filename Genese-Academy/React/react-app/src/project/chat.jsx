@@ -26,6 +26,26 @@ export default function Chat(){
      }, [true])
 
 
+    //  all typed msg comes here
+     const handleChange = (event) => {
+         setMsg(event.target.value);
+     };
+
+     const onSendMsg = () =>{
+         try {
+             await db.red("chats").push({
+                 content: this.state.content,
+                 timestamp: Date.now(),
+                 uid: this.state.user.uid
+             });
+             this.setState({ content: ' ' });
+         } catch(error){
+             this.setState({writeError: error.message });
+         }
+
+     }
+
+
     return(
         <div>
             {gettingUser ? <p> loading.... </p>:
