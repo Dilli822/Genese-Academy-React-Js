@@ -57,9 +57,9 @@ class Routes extends Component {
                         <Route path="/third/t/:id" exact>
                             <MyThirdHook/>
                         </Route>
-                        <Route path="/user-profile/:id" exact>
+                        {/* <Route path="/user-profile/:id" exact>
                             <UserProfile/>
-                        </Route>
+                        </Route> */}
                         <Route path="/effect" exact>
                             <EffectHookExample/>
                         </Route>
