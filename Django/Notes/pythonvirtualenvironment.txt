@@ -1,0 +1,20 @@
+
+=========================================================
+1.Python Virtual Environment installation
+cmds:
+    - pip install virtualenv
+
+2.Create virtualenvironment anywhere
+   Here env is a name of the virtualenv we can use any name
+    - python -m venv env 
+    - python -m venv myenvfolder
+
+3. Activate and deactivate the virtualenvironment
+  Go to directory where you Created virtualenvironment folder
+  - source foldername/bin/activate or source env/bin/activate
+
+  (env) will appear if it is activated
+  (env) dillirai@Dillis-MacBook-Air ~ % 
+
+4. Type deactivate to deactivate virtualenvironment
+  (env) dillirai@Dillis-MacBook-Air ~ % deactivate
