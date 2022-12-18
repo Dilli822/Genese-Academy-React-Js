@@ -1,0 +1,44 @@
+Arithmetic Operator
++
+/
+-
+% - modulus gives remainder
+// - double frontslash gives floor. it remove the float value for eg: 2/3 gives 0.6666 
+but // floor division only gives answer without float number answer of 2//3 is 0.
+* - exponent which gives power
+
+Logical Operator
+AND , OR , NOT
+
+Identity Operator
+is. isNot
+
+for int 
+a = 1
+b = 1
+a == b 
+b == a
+prints both true on shell because object and int address memory is same for both a and b for integer datatype
+
+a = []
+b = []
+a is b  # print false
+b is a  # print false because list has different address memory
+a == b
+b == a # prints true
+
+# Memorship Operator
+in and not in operator 
+testng in list
+a = [1,4,5,6]
+5 in a #Prints true as 5 is present in a list
+555 in a # prints false as 555 is not present as elements inside the list a 
+8989 not in a # prints true as not in Memorship operator is used return true
+
+"A" not in a #prints true because python is case sensitive 
+
+# Bit wise operator (used in low level machine level programming )
+- left shift, right shift, x-or, or
+
+
+

@@ -1,0 +1,13 @@
+1. Check the global packages,frameworks,library that has been installed on your system with cmd
+ pip freeze>requirements.txt
+
+2. Go to virtualenv folder and activate the virtualenv and type
+pip freeze>requirements1.txt
+
+- It must be blank because inside the virtualenv version is not global.
+
+3. install django after activating the environment and hit cmd
+pip freeze>requirements.txt
+-- you will get the latest versions of django and other required packages installed in the folder.
+-- asgiref is django server along with required default packages.
+

@@ -1,0 +1,68 @@
+Operators Precedence
+- same as math badmass rule 
+- (2+3)/5
+- 5/5
+- 1.0
+
+Operator Associtivity for exponent case in python
+- 2**3**2
+- first 3**2 gives 9 and 2**9 gives 512
+-(2**(3**2)) also gives 512
+--- from above we knew that for exponent operator associativity is not left associtivity but it is
+--- right associtivity.
+
+Python Keywords
+Python version 3 has 33 keywords.
+Identifier
+Name of variable and identifier must not use first character as number i.e.
+5variable --- wrong
+Variable5 --- correct
+
+Valid Identifiers
+VarName
+Var98
+_var
+
+Invalid Identifiers
+98var
+n@gmae
+Def
+
+-- Check either it is keyword or not
+Import keyword
+keyword.iskeyword("def")
+True
+keyword.iskeyword("hello")
+False
+
+--- check either it is identifier or not with python
+With the help "identifier".isidentifier() we can check either it is identifier or not
+"Name".isidentifier()
+True
+"n@df".isidentifier()
+False
+"Def".isidentifier()
+False
+
+---Comments in python----
+With hash # we can comment the python
+#single line comment
+""" This is multi line comment """
+The concept of multi line is almost not supported by other languages like c,c++,javascript.
+We call it multi line string the character inside the quotes. """ """
+
+----- EPISlION IN PYTHON gives smallest possible difference in python floating number addition.
+>>> 1.8+0.1
+>>> 1.9000000000000001
+-- this means
+>>> 1.8+0.1 == 1.9
+False
+
+-- this may bring issues and bugs in our code while in production.so we must be aware and careful while we are doing operation on floating numbers.
+- It is good practice to use round while performing arithmetic operation on floating numbers in python.
+>>> import sys
+>>> ((1.8+0.1) == sys.float_info.epsilon )
+False
+>>> import sys
+>>> ((1.8+0.1) - 1.9 == sys.float_info.epsilon)
+True
