@@ -1,7 +1,9 @@
 import React,{Component} from "react";
-import Practice_State from "./practice_state";
+import Props_Practice from "./practice_props";
+
 
 class Practice extends Component{
+    // state is created with constructor 
     constructor(props){
         super(props);
         this.state = {
@@ -11,71 +13,87 @@ class Practice extends Component{
         }
     };
 
-
-    // arrow functins here which automatically binds the function with class 
-    handleChange = (event) => {
+    // setting state here with arrow function which binds the data with above class
+    handleChange = (event) =>{
         this.setState({
             [event.target.name]: event.target.value
         })
-    }
+    };
 
-    // overrding the component method in react
+    // components in react overriding it works same as windows.onload
     componentDidMount(){
-        console.log("this is component did mount method in react js");
+        console.log("componend did mount is here!");
         let self = this;
-        this.state.timer = setInterval(function(){
+        this.timer = setInterval(()=>{
             self.setState({
                 date: new Date()
             })
-        }, 1000)
+        },1000)
     }
-    
+
+    // component unmount gets called before ending the react component lifecycle
     componentWillUnmount(){
-        console.log("Component is unmounted");
+        console.log("Component unmount is here!");
+        clearInterval(this.timer);
+    }
+
+    // buttons showing the clear interval
+    clearTimer=()=>{
+        clearInterval(this.timer);
+        console.log("clearing the timer as it returns unwanted something data !");
     }
 
 
-    render(){    
-        const get_time = new Date();
-        get_time.getHours();
-        const checkHours = 12;
-  
+    // pracfunc passing to child from parent component
+    parentFunc=()=> {
+        alert("parent function");
+    }
 
-            if(get_time < checkHours){
-                console.log("It is am");
-                var dc = "am";
-                
-            } else{
-                console.log("It is AM");
-                var dc = "pm";
-            }
-  
-        return (
+    //vetting value from child
+    childFunc=()=> {
+        alert("getting value from child component");
+    }
+
+    
+
+    // render method
+    render(){
+        return(
             <div>
-                <h3>Practice Component</h3>
-                <input type="text" name="username" onChange={this.handleChange}></input>
-                <input type="text" name="address" onChange={this.handleChange}></input>
-                <div>{this.state.username}</div> <br></br>
-                <div>{this.state.address}</div> <br></br>
-
+                <div><h5>Practice Component</h5></div>
 
                 <div>
-                    <h3> Digital_Clock </h3>
-                    <div style={{display: "flex"}}> 
-                    <div>{this.state.date.getHours()-12} Hours:</div>
-                    <div>{this.state.date.getMinutes()} min:</div>
-                    <div>{this.state.date.getSeconds()}s</div>
-                    <span>{dc}</span>
-                    
-
-                    </div>     
-              
+                    <h5>state in react is feature of class component which holds the value or data that is dynamic</h5>
+                    <p>Example of static state </p>
+                    {this.state.pi}
                 </div>
-        
-                <Practice_State username= {this.state.username} address={this.state.address} />
+
+                <div>
+                    <h3>Example of dynamic state</h3>
+                    <input type="text" name="username" onChange={this.handleChange}></input>
+                    username:{this.state.username}
+                </div>
+
+                <div>
+                    <h4>Component did mount example with clock</h4>
+                    
+                    {this.state.date.getHours()}h:
+                    {this.state.date.getMinutes()}m:
+                    {this.state.date.getSeconds()}s
+                </div>
+
+                <div>
+                    <h5>Example of Component UNmount</h5>
+                    <button onClick={this.clearTimer}>Clear Timer or Stop</button>
+                </div>
+
+                <div>
+                    <h5>Passing function as props to another component</h5>
+                    <Props_Practice childFunc = {this.childFunc("child value to parent")} parentFunc = {this.parentFunc()} username = {this.state.username}/>
+                </div>
             </div>
         )
     }
-}
+};
 
 export default Practice;

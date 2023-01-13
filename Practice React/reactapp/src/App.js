@@ -18,12 +18,13 @@ function App() {
     <div>
       {/* <WeatherHome/>
       <StatePropsExample/> */}
-      <Practice_State/>
+      {/* <Practice_State/>
       <Props_Practice/>
       <React_LifeCycleMethod/>
-      <Digital_Clock/>
+      <Digital_Clock/> */}
 
       <Practice/>
+      <Props_Practice/>
      
     </div>
   );
