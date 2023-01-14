@@ -31,10 +31,10 @@ class Digital_Clock extends Component{
                 setInterval is a JavaScript function that takes two arguments: a callback function and a delay in milliseconds. It returns a unique timer ID that can be used to stop the timer using clearInterval(timer).
                 The state.timer variable is being set to the return value of setInterval, which is the timer ID. This ID can be used to stop the interval later on by calling clearInterval(this.state.timer).
                 </p>
-                <div style={{display: "flex", maxWidth: "auto"}}>
-                    <div>{this.state.date.getHours()}</div>
-                    <div>{this.state.date.getMinutes()}</div>
-                    <div>{this.state.date.getSeconds()}</div>
+                <div style={{display: "flex", fontSize: "35px",position: "absolute", left: "50%", top: "50%", right: "50%", transform: "translate(-50%,-50%)"}}>
+                    <div style={{padding: "0.15rem" }}>{this.state.date.getHours()-12}:</div>
+                    <div style={{padding: ".15rem" }}>{this.state.date.getMinutes()}:</div>
+                    <div style={{padding: ".15rem" }}>{this.state.date.getSeconds()}</div>
                 </div>
             </div>
         )

@@ -1,96 +1,109 @@
 import React,{Component} from "react";
 import Props_Practice from "./practice_props";
 
-
 class Practice extends Component{
-    // state is created with constructor 
+    // constructor with state 
     constructor(props){
         super(props);
         this.state = {
             username: "",
             address: "",
-            date: new Date()
+            date: new Date(),
+            customerName: "dilli hang ra",
         }
     };
 
-    // setting state here with arrow function which binds the data with above class
+    // setting state with handleChange arrow function that binds with above state and class
     handleChange = (event) =>{
         this.setState({
             [event.target.name]: event.target.value
         })
     };
 
-    // components in react overriding it works same as windows.onload
-    componentDidMount(){
-        console.log("componend did mount is here!");
+    // component overriding with component did mount which works just as windows.onload function in vanilla js
+    componentDidMount () {
         let self = this;
-        this.timer = setInterval(()=>{
+        console.log("Component Did Mount gets called when component get rendered");
+        this.timer = setInterval(function(){
             self.setState({
-                date: new Date()
+                date: new Date(),
             })
         },1000)
-    }
+    };
 
-    // component unmount gets called before ending the react component lifecycle
-    componentWillUnmount(){
-        console.log("Component unmount is here!");
+
+    // component did unmount gets called when component or view going to get terminated
+    componentWillUnmount () {
+        console.log("COmponent is unmounting ");
         clearInterval(this.timer);
     }
 
-    // buttons showing the clear interval
-    clearTimer=()=>{
+    // demonstarting with button clicking action
+    clearTimer = () => {
         clearInterval(this.timer);
-        console.log("clearing the timer as it returns unwanted something data !");
     }
 
-
-    // pracfunc passing to child from parent component
-    parentFunc=()=> {
-        alert("parent function");
+    // definining parent function here
+    parentFun = () =>{
+        console.log("hello from parent func");
+        console.log("hello from parent func rendering in child component as props")
     }
 
-    //vetting value from child
-    childFunc=()=> {
-        alert("getting value from child component");
-    }
+    passValueFunc = (childValue) => {
+        console.log("recieveing value is " + childValue)
+    };
 
-    
 
-    // render method
+    // render method 
     render(){
         return(
             <div>
-                <div><h5>Practice Component</h5></div>
 
                 <div>
-                    <h5>state in react is feature of class component which holds the value or data that is dynamic</h5>
-                    <p>Example of static state </p>
-                    {this.state.pi}
+                    <h4>Practice Component</h4>
                 </div>
 
                 <div>
-                    <h3>Example of dynamic state</h3>
-                    <input type="text" name="username" onChange={this.handleChange}></input>
-                    username:{this.state.username}
+
+                    <div>
+                        Static State component <br></br>
+                        username static: {this.state.customerName}
+                    </div>
+
+                    <div>
+                        <h5>Dynamic State Values examples</h5>
+                        <input type="text" name="username" onChange={this.handleChange}></input> <br></br>
+                        <input type="text" name="address" onChange={this.handleChange}></input> <br></br>
+                        username: {this.state.username} <br></br>
+                        address: {this.state.address} <br></br>
+                    </div>
+
+                    <div>
+                        <h5>GLIMPSE OF REACT LIFE CYCLE COMPONENT COMPONENT DID MOUNT AND WILL UNMOUNT</h5>
+                        <div>
+                            <h6>Digital Clock</h6>
+                            {this.state.date.getHours()}:
+                            {this.state.date.getMinutes()}:
+                            {this.state.date.getSeconds()}
+                        </div>
+
+                        <div>
+                            <h5>EXAMPLE OF CLEAR INETERVAL OR COMPONENT UNMOUNT</h5>
+                            <button onClick={this.clearTimer}>Clear Interval or stop the clock</button>
+                        </div>
+                    </div>
+
                 </div>
+                
+
 
                 <div>
-                    <h4>Component did mount example with clock</h4>
-                    
-                    {this.state.date.getHours()}h:
-                    {this.state.date.getMinutes()}m:
-                    {this.state.date.getSeconds()}s
+                    <h6>Passing State as props to another component</h6>
+                    we can also pass function to child component from parent component
+
+                    <Props_Practice customerName={this.state.customerName} parentFun={this.parentFun} passValueFunc={this.passValueFunc("m12")}></Props_Practice>
                 </div>
 
-                <div>
-                    <h5>Example of Component UNmount</h5>
-                    <button onClick={this.clearTimer}>Clear Timer or Stop</button>
-                </div>
-
-                <div>
-                    <h5>Passing function as props to another component</h5>
-                    <Props_Practice childFunc = {this.childFunc("child value to parent")} parentFunc = {this.parentFunc()} username = {this.state.username}/>
-                </div>
             </div>
         )
     }

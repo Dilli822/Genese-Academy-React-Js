@@ -1,17 +1,10 @@
 import React from 'react';
 import './App.css';
 import Routes  from './routes';
-import WeatherHome from './weatherInfo/weatherHome';
-import { Component } from 'react';
-import { Route } from 'react-router-dom';
-import State_Props_Route_Example from './statePropsExample';
-import StatePropsExample from './statePropsExample';
 import Props_Practice from './practice_props';
-import Practice_State from './practice_state';
-import React_LifeCycleMethod from './react_lifeCycle';
-import Digital_Clock from './digitalClock';
 import Practice from './practice';
-const myElement = <h1>I love React!</h1>
+import Main_Router from './routes';
+
 
 function App() {
   return (
@@ -23,8 +16,10 @@ function App() {
       <React_LifeCycleMethod/>
       <Digital_Clock/> */}
 
-      <Practice/>
-      <Props_Practice/>
+
+      {/* <Practice/>
+      <Props_Practice/> */}
+      <Main_Router/>
      
     </div>
   );

@@ -20,6 +20,7 @@ class Props_Practice extends Component{
                 practice username: {this.props.username}
                 function practice as props: {this.props.parentFunc}
                 passing value to parent {this.props.childFunc}
+                {this.props.parentFun} {this.props.passValueFunc}
             </div>
         </div>
         )

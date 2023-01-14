@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import weatherHome from "./weatherInfo/weatherHome";
-
-class Routes extends Component{
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import Home from './home_Component';
+import Digital_Clock from './digitalClock';
+import Practice from './practice';
+class Main_Router extends Component{
     render(){
         return(
             <div>
                 <Router>
-                    <switch>
-                    <Route path="/weatherApp" exact>
-                        <weatherHome/>
-                    </Route>
-                    </switch>
-
+                    <Routes>
+                        <Route path='/' element={ <Home />} exact></Route>
+                        <Route path='/clock' element={<Digital_Clock />} exact></Route>
+                        <Route path='/practice' element={<Practice />} exact></Route>
+                    </Routes>
                 </Router>
             </div>
+       
         )
     }
 }
 
-export default Routes;
+export default Main_Router;
