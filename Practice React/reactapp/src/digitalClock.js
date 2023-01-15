@@ -20,6 +20,18 @@ class Digital_Clock extends Component{
     }
 
     render(){
+        const d = new Date();
+        let hour = d.getHours();
+        if(hour > 12){
+              var t = hour - 12;
+              var ante_meridian = "PM";
+              console.log(t);
+        }else{
+            var t = hour;
+            var ante_meridian = "AM";
+            console.log(t);
+        }
+
         return(
             <div>
                 <h5>Digital Clock</h5>
@@ -31,10 +43,13 @@ class Digital_Clock extends Component{
                 setInterval is a JavaScript function that takes two arguments: a callback function and a delay in milliseconds. It returns a unique timer ID that can be used to stop the timer using clearInterval(timer).
                 The state.timer variable is being set to the return value of setInterval, which is the timer ID. This ID can be used to stop the interval later on by calling clearInterval(this.state.timer).
                 </p>
-                <div style={{display: "flex", fontSize: "35px",position: "absolute", left: "50%", top: "50%", right: "50%", transform: "translate(-50%,-50%)"}}>
-                    <div style={{padding: "0.15rem" }}>{this.state.date.getHours()-12}:</div>
-                    <div style={{padding: ".15rem" }}>{this.state.date.getMinutes()}:</div>
-                    <div style={{padding: ".15rem" }}>{this.state.date.getSeconds()}</div>
+                <div style={{position:"relative"}}> 
+                <div style={{display: "flex", fontSize: "35px",position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)"}}>
+                    <div style={{padding: "0.0005rem" }}>{t}:</div>
+                    <div style={{padding: ".0005rem" }}>{this.state.date.getMinutes()}:</div>
+                    <div style={{padding: ".0005rem" }}>{this.state.date.getSeconds()}:</div>
+                    <div style={{padding: ".0005rem" }}>{ante_meridian}</div>
+                    </div>
                 </div>
             </div>
         )
