@@ -4,6 +4,7 @@ import Home from './home_Component';
 import Digital_Clock from './digitalClock';
 import Practice from './practice';
 import ApiCall from './apiCall/apiCallEg';
+import Practice_Routes from './practice_routes';
 
 class Main_Router extends Component{
     render(){
@@ -15,6 +16,7 @@ class Main_Router extends Component{
                         <Route path='/clock' element={<Digital_Clock />} exact></Route>
                         <Route path='/practice' element={<Practice />} exact></Route>
                         <Route path='/api-call' element={<ApiCall/>} exact></Route>
+                        <Route path='/practice-routes' element={<Practice_Routes/>} exact></Route>
                     </Routes>
                 </Router>
             </div>

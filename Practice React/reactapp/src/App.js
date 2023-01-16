@@ -4,6 +4,7 @@ import Routes  from './routes';
 import Props_Practice from './practice_props';
 import Practice from './practice';
 import Main_Router from './routes';
+import Practice_Routes from './practice_routes';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       {/* <Practice/>
       <Props_Practice/> */}
       <Main_Router/>
+
      
     </div>
   );

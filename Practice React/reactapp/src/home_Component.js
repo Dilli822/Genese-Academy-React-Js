@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 class Home extends Component{
     render(){
         return(
+            <div className="home container">
+                <div className="home wrapper"> 
             <div>
                 <h5>Routes</h5>
                 home component
@@ -26,9 +28,11 @@ class Home extends Component{
 
                     <p>APICALL EXAMPLE</p>
                     <Link to={'/api-call'}> <button> Go to the Api Call Example </button> </Link>
+                    <Link to={'/practice-routes'}><button>Go to practice routes</button></Link>
                   
-                   
+                  </div>
                 </div>
+               </div>
             </div>
         )
     }
