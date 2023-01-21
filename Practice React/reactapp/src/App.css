@@ -13,6 +13,22 @@
   pointer-events: none;
 }
 
+button{
+  border: 1px solid #fff;
+  background-color: #22e77e;
+  padding: 0.35rem;
+  font-size: 16px;
+  cursor: pointer;
+  
+}
+button:hover{
+  border: 1px solid rgb(255, 3, 158);
+}
+
+hr{
+  margin-top: 2rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

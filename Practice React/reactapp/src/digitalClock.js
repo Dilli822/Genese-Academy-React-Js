@@ -25,11 +25,11 @@ class Digital_Clock extends Component{
         if(hour > 12){
               var t = hour - 12;
               var ante_meridian = "PM";
-              console.log(t);
+        
         }else{
             var t = hour;
             var ante_meridian = "AM";
-            console.log(t);
+          
         }
 
         return(

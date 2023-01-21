@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Props_Practice from "./practice_props";
+import Props_Practice from "../react_practices/practice_props";
 
 class React_State_Props extends Component{
     // we call constructor with state always here

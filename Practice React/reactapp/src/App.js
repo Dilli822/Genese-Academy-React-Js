@@ -1,28 +1,16 @@
 import React from 'react';
 import './App.css';
-import Routes  from './routes';
-import Props_Practice from './practice_props';
-import Practice from './practice';
 import Main_Router from './routes';
-import Practice_Routes from './practice_routes';
-
+import Practice_Router from './components/react_practices/practice_routes';
 
 function App() {
   return (
     <div>
-      {/* <WeatherHome/>
-      <StatePropsExample/> */}
-      {/* <Practice_State/>
-      <Props_Practice/>
-      <React_LifeCycleMethod/>
-      <Digital_Clock/> */}
+{/* 
+      <Main_Router/> */}
 
+      <Practice_Router/>
 
-      {/* <Practice/>
-      <Props_Practice/> */}
-      <Main_Router/>
-
-     
     </div>
   );
 }

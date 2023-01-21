@@ -5,7 +5,7 @@ class Practice_Error_Component extends Component{
         return(
             <div>
                 <h2>Error!something went wrong</h2>
-                <button onClick={()=>this.props.onRetry()}>Retry</button>
+                <button onClick={()=> this.props.apiErrorHandle()}>retry</button>
             </div>
         )
     }
