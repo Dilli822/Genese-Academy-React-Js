@@ -16,7 +16,8 @@ class SearchApp extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://restcountries.com/v3.1/all').then((response) => {
+    // axios.get('https://restcountries.com/v3.1/all').then((response) => {
+      axios.get('https://api.cognitive.microsofttranslator.com/languages?api-version=3.0').then((response)=>{
       this.setState({ 
         countries: response.data,
         loading: false,
@@ -59,8 +60,8 @@ class SearchApp extends Component {
         {
           this.state.loading ? 
           <div> data is loading </div>:
-          
-          this.state.error ? <div> </div> :
+
+          this.state.error ? <div> no data error </div> :
 
           <div>
         <input
