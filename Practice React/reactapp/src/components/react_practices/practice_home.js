@@ -15,8 +15,8 @@ class Practice_Home extends Component{
                 <Link to='/practice-api-call'><button>Go To  api call example</button></Link>
                 <Link to='/practice-covid-card'><button>Go to practice. covid card</button></Link>
                 <Link to='/practice'><button>Practice</button></Link>
-                <Link to={'/searchApp'}>  <button>Auto search app</button> </Link>
-                <Link to={'/autoSearch'}>     <button>Static Search app</button></Link>
+                <Link to='/searchApp'>  <button>Static search app</button> </Link>
+                <Link to='/autoSearch'>     <button>auto Search app</button></Link>
             </div>
         )
     }

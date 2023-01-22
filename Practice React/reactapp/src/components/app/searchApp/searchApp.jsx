@@ -7,34 +7,32 @@ class SearchApp extends Component {
     this.state = {
       countries: [],
       searchText: '',
-      message: "",
-      error: false,
       loading: true,
+      error: false,
+      flagPath: 'https:://unsplash.it/459',
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    // axios.get('https://restcountries.com/v3.1/all').then((response) => {
-      axios.get('https://api.cognitive.microsofttranslator.com/languages?api-version=3.0').then((response)=>{
-      this.setState({ 
-        countries: response.data,
-        loading: false,
-       });
+    axios.get('https://restcountries.com/v3.1/all').then((response) => {
+        console.log(response.data);
+      this.setState({ countries: response.data });
     }).catch((error)=>{
-       console.log(error);
-    })
+        console.log(error);
+        this.setState({
+            error: true
+        })
+    });
   }
 
   handleSearch() {
     let filteredCountries = this.state.countries.filter((country) => {
-      return country.name.common
-        .toLowerCase()
-        .includes(this.state.searchText.toLowerCase());
+      return country.name.official.toLowerCase().includes(this.state.searchText.toLowerCase());
     });
     if (filteredCountries.length === 0) {
-      this.setState({ countries: [], message: "No data found" });
+      this.setState({ countries: [], message: "No any Results found" });
     }
     else {
       this.setState({ countries: filteredCountries, message: "" });
@@ -55,34 +53,31 @@ class SearchApp extends Component {
   render() {
     return (
       <div>
-
-        
-        {
-          this.state.loading ? 
-          <div> data is loading </div>:
-
-          this.state.error ? <div> no data error </div> :
-
-          <div>
         <input
           type="text"
           placeholder="Search for a country"
           onChange={this.handleChange}
         />
         <button onClick={this.handleSearch}>Search</button>
-                <ul>
+        <h3>No of countries: {this.state.countries.length}</h3>
+        <div>
           {this.state.countries.map((country) => (
-            <li key={country.name.common}>{country.name.common}</li>
-          ))}
-        </ul>
-        {this.state.message && <div>{this.state.message}</div>}
-        </div>
+            <div key={country}>
+                <h5>Country Official Name: <p>{country.name.official}</p> </h5>
+                <h5>Capital: <h6>{country.capital}</h6></h5>
+                <h5>Continents: <h6>{country.continents}</h6></h5>
+                <h5>flags: <h6><img style={{ width: "50px"}}src={country.flags.png} alt={'flag of country ${country.name.official}'} />　</h6></h5>
+                <hr></hr>
+            </div>
           
-        }
-
+          ))}
+        </div>
+        
+        {this.state.message && <div>{this.state.message}</div>}
       </div>
     );
   }
+
 }
 
 export default SearchApp;

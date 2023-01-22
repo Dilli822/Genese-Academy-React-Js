@@ -1,67 +1,65 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import axios from "axios";
+import React, {Component} from "react";
 
-class Practice extends Component {
-  constructor(props) {
+class Practice extends Component{
+  constructor(props){
     super(props);
     this.state = {
-      countries: [],
-      searchText: '',
-    };
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+      searchText: "",
+      loading: true,
+      error: false,
+      apiData: [],
+      dupApiData: [],
+    }
+  };
+
+  componentDidMount(){
+    this.getApiData();
   }
 
-  componentDidMount() {
-    axios.get('https://restcountries.com/v3.1/all').then((response) => {
-      this.setState({ countries: response.data });
-    });
+  getApiData = () =>{
+    let self = this;
+    axios.get('').then((res)=>{
+      console.log(res.data);
+      self.setState({
+        apiData: res.data,
+        loading: false,
+        error: false,
+      })
+    }).catch((err)=>{
+      console.log(err);
+      self.setState({ error: true, loading: false })
+    })
   }
 
-  handleSearch() {
-    let filteredCountries = this.state.countries.filter((country) => {
-      return country.name.common
-        .toLowerCase()
-        .includes(this.state.searchText.toLowerCase());
-    });
-    if (filteredCountries.length === 0) {
-      this.setState({ countries: [], message: "No data found" });
-    }
-    else {
-      this.setState({ countries: filteredCountries, message: "" });
-    }
+
+
+  onRetry = () =>{
+
+  };
+
+  //error handling 
+  onErrorRetry = () =>{
+    let self = this;
+    self.setState({ error: false, loading: true});
+    this.getApiData();
   }
 
-  handleChange(event) {
-    if (event.target.value === "") {
-      axios.get('https://restcountries.com/v3.1/all').then((response) => {
-        this.setState({ countries: response.data });
-      });
-    }
-    else {
-      this.setState({ searchText: event.target.value });
-    }
-  }
-
-  render() {
-    return (
+  render(){
+    return(
       <div>
-        <input
-          type="text"
-          placeholder="Search for a country"
-          onChange={this.handleChange}
-        />
-        <button onClick={this.handleSearch}>Search</button>
-        <ul>
-          {this.state.countries.map((country) => (
-            <li key={country.name.common}>{country.name.common}</li>
-          ))}
-        </ul>
-        {this.state.message && <div>{this.state.message}</div>}
-      </div>
-    );
-  }
 
-}
+        <div>
+          <h5>Practice search app</h5>
+        </div>
+
+        <div>
+    
+        </div>
+
+      </div>
+    )
+  }
+};
 
 export default Practice;
